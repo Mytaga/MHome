@@ -28,7 +28,7 @@ namespace MHome.Data.Models
         public decimal Price { get; set; }
 
         [ForeignKey(nameof(Owner))]
-        public int? ClientId { get; set; }
+        public string ClientId { get; set; }
 
         public virtual Client Owner { get; set; }
 

@@ -3,6 +3,7 @@ using MHome.Data.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,12 +24,14 @@ namespace MHome.Data.Models
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(StoreValidationConstants.AddressMaxLength)]
-        public string Address { get; set; }
-
-        [Required]
         [MaxLength(StoreValidationConstants.DescriptionMaxLength)]
         public string Description { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(Address))]
+        public string AddressId { get; set; }
+
+        public virtual Address Address { get; set; }
 
         public virtual ICollection<Furniture> FurnitureForSale { get; set; }
 

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MHome.Data.Models.Common
 {
-    public static class ClientValidationConstants
+    public static class AddressValidationConstants
     {
-        public const int FirstNameMaxLength = 30;
-        public const int LastNameMaxLength = 30;
+        public const int AddressMaxLength = 150;
+        public const int TownMaxLength = 50;
     }
 }

@@ -12,6 +12,7 @@
         public Furniture()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.Stores = new List<Store>();
             this.Orders = new List<Order>();
         }
 
@@ -34,10 +35,10 @@
         [Required]
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         [ForeignKey(nameof(Owner))]
-        public int? ClientId { get; set; }
+        public string ClientId { get; set; }
 
         public virtual Client Owner { get; set; }
 

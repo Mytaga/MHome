@@ -9,7 +9,6 @@ namespace MHome.Data.Models.Common
     public static class StoreValidationConstants
     {
         public const int NameMaxLength = 30;
-        public const int AddressMaxLength = 100;
         public const int DescriptionMaxLength = 100;
     }
 }
