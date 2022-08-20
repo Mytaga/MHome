@@ -23,5 +23,9 @@
     <ProjectReference Include="..\..\MHome.Data.Models.Common\MHome.Data.Models.Common.csproj" />
     <ProjectReference Include="..\MHome.Data.Common\MHome.Data.Common.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
   
 </Project>

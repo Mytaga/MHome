@@ -26,6 +26,25 @@
 
         public DbSet<Setting> Settings { get; set; }
 
+        public virtual DbSet<Furniture> Furnitures { get; set; }
+
+        public virtual DbSet<Accessory> Accessories { get; set; }
+
+        public virtual DbSet<Address> Addresses { get; set; }
+
+        public virtual DbSet<CardInfo> PaymentCards { get; set; }
+
+        public virtual DbSet<Category> Categories { get; set; }
+
+        public virtual DbSet<Client> Clients { get; set; }
+
+        public virtual DbSet<ClientCard> ClientCards { get; set; }
+
+        public virtual DbSet<Order> Orders { get; set; }
+
+        public virtual DbSet<Store> Stores { get; set; }
+
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -58,7 +77,9 @@
 
             // Set global query filter for not deleted entities only
             var deletableEntityTypes = entityTypes
-                .Where(et => et.ClrType != null && typeof(IDeletableEntity).IsAssignableFrom(et.ClrType));
+                .Where(et => et.ClrType != null
+                && typeof(IDeletableEntity).IsAssignableFrom(et.ClrType) &&
+                et.BaseType == null);
             foreach (var deletableEntityType in deletableEntityTypes)
             {
                 var method = SetIsDeletedQueryFilterMethod.MakeGenericMethod(deletableEntityType.ClrType);
