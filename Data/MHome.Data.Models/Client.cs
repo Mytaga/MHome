@@ -14,6 +14,7 @@ namespace MHome.Data.Models
             this.BoughtFurniture = new List<Furniture>();
             this.BoughtAccessories = new List<Accessory>();
             this.PaymentCards = new List<CardInfo>();
+            this.Orders = new List<Order>();
         }
 
         [Required]
@@ -39,5 +40,7 @@ namespace MHome.Data.Models
         public virtual ICollection<Accessory> BoughtAccessories { get; set; }
 
         public virtual ICollection<CardInfo> PaymentCards { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
