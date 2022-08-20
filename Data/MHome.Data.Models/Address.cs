@@ -27,10 +27,5 @@ namespace MHome.Data.Models
         public string TownName { get; set; }
 
         public virtual ICollection<Client> Clients { get; set; }
-
-        [ForeignKey(nameof(Store))]
-        public string StoreId { get; set; }
-
-        public virtual Store Store { get; set; }
     }
 }

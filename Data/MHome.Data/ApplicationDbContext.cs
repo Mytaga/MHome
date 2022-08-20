@@ -75,6 +75,8 @@
 
             var entityTypes = builder.Model.GetEntityTypes().ToList();
 
+            builder.Entity<Client>().HasOne(c => c.ClietnCard).WithOne(cc => cc.Client);
+
             // Set global query filter for not deleted entities only
             var deletableEntityTypes = entityTypes
                 .Where(et => et.ClrType != null
