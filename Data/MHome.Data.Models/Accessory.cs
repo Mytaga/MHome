@@ -27,6 +27,9 @@ namespace MHome.Data.Models
         [Required]
         public decimal Price { get; set; }
 
+        [Required]
+        public string ImageURL { get; set; }
+
         [ForeignKey(nameof(Owner))]
         public string ClientId { get; set; }
 

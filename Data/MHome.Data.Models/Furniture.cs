@@ -28,6 +28,9 @@
         public decimal Price { get; set; }
 
         [Required]
+        public string ImageURL { get; set; }
+
+        [Required]
         [MaxLength(FurnitureValidationConstants.DimensionsMaxLength)]
         public string Dimensions { get; set; }
 
