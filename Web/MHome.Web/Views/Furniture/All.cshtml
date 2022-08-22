@@ -1,14 +1,18 @@
-﻿@model IEnumerable<MHome.Data.Models.Furniture>
+﻿@using MHome.Common
+@model IEnumerable<MHome.Data.Models.Furniture>
 
 @{
     ViewData["Title"] = "Furniture Catalogue";
 }
 
-<h1>All</h1>
+<h1>Catalogue</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if(User.IsInRole(GlobalConstants.AdministratorRoleName)){
+    <p>
+        <a class="btn btn-info" asp-action="Create">Create New</a>
+    </p>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -55,9 +59,11 @@
                 @Html.DisplayFor(modelItem => item.StockQuantity)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                @if(User.IsInRole(GlobalConstants.AdministratorRoleName)){
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
             </td>
         </tr>
 }
