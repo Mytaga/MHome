@@ -1,11 +1,8 @@
 ﻿using MHome.Data.Common.Repositories;
 using MHome.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MHome.Services.Data
@@ -20,30 +17,28 @@ namespace MHome.Services.Data
             this.furnitureRepo = furnitureRepo;
         }
 
-        public async Task<ICollection<Furniture>> GetAllByName(string searchName = EmptyString)
+        public IQueryable<Furniture> GetAllByName(string searchName = EmptyString)
         {
             if (searchName != EmptyString)
             {
-                return await this.furnitureRepo
+                return this.furnitureRepo
                     .AllAsNoTracking()
-                    .Where(f => f.Name.ToLower().Contains(searchName.ToLower()))
-                    .ToArrayAsync();
+                    .Where(f => f.Name.ToLower().Contains(searchName.ToLower()));
             }
 
-            return await this.furnitureRepo.All().ToArrayAsync();
+            return this.furnitureRepo.All();
         }
 
-        public async Task<ICollection<Furniture>> GetAllByCategory(string categoryName = EmptyString)
+        public IQueryable<Furniture> GetAllByCategory(string categoryName = EmptyString)
         {
             if (categoryName != EmptyString)
             {
-                return await this.furnitureRepo
+                return this.furnitureRepo
                     .AllAsNoTracking()
-                    .Where(f => f.Category.Name.ToLower().Contains(categoryName.ToLower()))
-                    .ToArrayAsync();
+                    .Where(f => f.Category.Name.ToLower().Contains(categoryName.ToLower()));
             }
 
-            return await this.furnitureRepo.All().ToArrayAsync();
+            return this.furnitureRepo.All();
         }
 
         public async Task<Furniture> GetById(string id)
@@ -51,6 +46,14 @@ namespace MHome.Services.Data
             return await this.furnitureRepo
                 .AllAsNoTracking()
                 .FirstOrDefaultAsync(f => f.Id == id);
+        }
+
+        public ICollection<string> GetAllFurnitureCategories()
+        {
+            return this.furnitureRepo
+                .AllAsNoTracking()
+                .Select(f => f.Category.Name)
+                .ToArray();
         }
     }
 }

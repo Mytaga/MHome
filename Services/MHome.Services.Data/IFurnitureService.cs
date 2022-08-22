@@ -9,9 +9,11 @@ namespace MHome.Services.Data
 {
     public interface IFurnitureService
     {
-        Task<ICollection<Furniture>> GetAllByName(string searchName = "");
+        IQueryable<Furniture> GetAllByName(string searchName = "");
 
-        Task<ICollection<Furniture>> GetAllByCategory(string categoryName = "");
+        IQueryable<Furniture> GetAllByCategory(string categoryName = "");
+
+        ICollection<string> GetAllFurnitureCategories();
 
         Task<Furniture> GetById(string id);
     }
