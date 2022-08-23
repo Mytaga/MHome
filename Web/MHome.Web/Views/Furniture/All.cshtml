@@ -25,9 +25,9 @@
         }
     </div>
     <div class="col-md-6 justify-content-end">
-        <form class="mt-5">
+        <form method="get" asp-controller="Furniture" asp-action="All" class="mt-5">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" name="search" class="form-control" placeholder="Search">
                 <div class="input-group-btn">
                     <button class="btn btn-info" type="submit">
                         Search
