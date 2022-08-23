@@ -1,5 +1,5 @@
 ﻿@using MHome.Common
-@model IEnumerable<MHome.Data.Models.Furniture>
+@model MHome.Web.ViewModels.FurnitureViewModels.AllFurnitureViewModel
 
 @{
     ViewData["Title"] = "Furniture Catalogue";
@@ -7,65 +7,52 @@
 
 <h1>Catalogue</h1>
 
-@if(User.IsInRole(GlobalConstants.AdministratorRoleName)){
-    <p>
+@*@if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+{
+ *@   <p>
         <a class="btn btn-info" asp-action="Create">Create New</a>
     </p>
+@*}*@
+
+@foreach(string category in Model.Categories)
+{
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="@category" value="@category">
+        <label class="form-check-label" for="@category">@category</label>
+    </div>
 }
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
+                Name
+            </th>     
             <th>
-                @Html.DisplayNameFor(model => model.ImageURL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dimensions)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StockQuantity)
+                Price
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-             <td>
-                @Html.DisplayFor(modelItem => item.ImageURL)
-             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dimensions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StockQuantity)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
-                @if(User.IsInRole(GlobalConstants.AdministratorRoleName)){
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                }
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.AllFurniture)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @*@if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+                    {*@
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    @*}*@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
