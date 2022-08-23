@@ -1,6 +1,5 @@
-﻿@using MHome.Common;
-@using MHome.Web.ViewModels.FurnitureViewModels;
-@model AllFurnitureViewModel
+﻿@using MHome.Common
+@model IEnumerable<MHome.Data.Models.Furniture>
 
 @{
     ViewData["Title"] = "Furniture Catalogue";
@@ -18,37 +17,34 @@
     <thead>
         <tr>
             <th>
-                Name
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                Image
+                @Html.DisplayNameFor(model => model.ImageURL)
             </th>
             <th>
-                Price
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                Description
+                @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
-                Price
+                @Html.DisplayNameFor(model => model.Dimensions)
             </th>
             <th>
-                Dimensions
-            </th>
-            <th>
-                StockQuantity
+                @Html.DisplayNameFor(model => model.StockQuantity)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.AllFurniture) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
              <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                @Html.DisplayFor(modelItem => item.ImageURL)
              </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
