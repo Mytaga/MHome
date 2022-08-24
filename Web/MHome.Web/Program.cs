@@ -61,12 +61,12 @@
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
-            
+
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddScoped<IFurnitureService, FurnitureService>();
-
+            services.AddScoped<ICategoryService, CategoryService>();
         }
 
         private static void Configure(WebApplication app)
