@@ -21,13 +21,14 @@ namespace MHome.Web.Controllers
         [HttpGet]
         public IActionResult All(string search)
         {
-            IQueryable<Furniture> allFurnitures = this.furnitureService.GetAllByName();
+            IQueryable<Furniture> allFurnitures = this.furnitureService.GetAllByName(search);
             ICollection<string> allCategories = this.furnitureService.GetAllFurnitureCategories();
 
             AllFurnitureViewModel viewModel = new AllFurnitureViewModel()
             {
                 AllFurniture = allFurnitures.To<ListAllFurnitureViewModel>().ToArray(),
                 Categories = allCategories,
+                SearchQuery = search,
             };
 
             return this.View(viewModel);
