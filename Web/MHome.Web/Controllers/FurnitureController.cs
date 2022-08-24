@@ -12,10 +12,12 @@ namespace MHome.Web.Controllers
     public class FurnitureController : BaseController
     {
         private readonly IFurnitureService furnitureService;
+        private readonly ICategoryService categoryService;
 
-        public FurnitureController(IFurnitureService furnitureService)
+        public FurnitureController(IFurnitureService furnitureService, ICategoryService categoryService)
         {
             this.furnitureService = furnitureService;
+            this.categoryService = categoryService;
         }
 
         [HttpGet]
@@ -32,6 +34,15 @@ namespace MHome.Web.Controllers
             };
 
             return this.View(viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            ICollection<ListCategoriesOnFurnitureViewModel> allCategories =
+                this.categoryService.All().To<ListCategoriesOnFurnitureViewModel>().ToArray();
+
+            return this.View(allCategories);
         }
     }
 }
