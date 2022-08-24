@@ -19,7 +19,7 @@ namespace MHome.Services.Data
 
         public IQueryable<Furniture> GetAllByName(string searchName = EmptyString)
         {
-            if (searchName != EmptyString)
+            if (searchName != null)
             {
                 return this.furnitureRepo
                     .AllAsNoTracking()
