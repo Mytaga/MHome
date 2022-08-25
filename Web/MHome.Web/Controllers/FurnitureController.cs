@@ -1,7 +1,9 @@
-﻿using MHome.Data.Models;
+﻿using MHome.Common;
+using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
 using MHome.Web.ViewModels.FurnitureViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace MHome.Web.Controllers
         public FurnitureController(IFurnitureService furnitureService, ICategoryService categoryService)
         {
             this.furnitureService = furnitureService;
-            this.categoryService = categoryService;
+            this.categoryService = categoryService;      
         }
 
         [HttpGet]
@@ -37,12 +39,49 @@ namespace MHome.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult Create()
         {
             ICollection<ListCategoriesOnFurnitureViewModel> allCategories =
                 this.categoryService.All().To<ListCategoriesOnFurnitureViewModel>().ToArray();
 
             return this.View(allCategories);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> Create(CreateFurnitureInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("Create", "Furniture");
+            }
+
+            if (!this.categoryService.ExistById(model.CategoryId))
+            {
+                return this.RedirectToAction("Create", "Furniture");
+            }
+
+            Furniture furniture = AutoMapperConfig.MapperInstance.Map<Furniture>(model);
+
+            await this.furnitureService.AddFurniture(furniture);
+
+            return this.RedirectToAction("All", "Furniture");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(string id)
+        {
+            var furniture = await this.furnitureService.GetById(id);
+
+            if (furniture == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            DetailsFurnitureViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsFurnitureViewModel>(furniture);
+
+            return this.View(viewModel);
         }
     }
 }
