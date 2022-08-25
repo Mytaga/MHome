@@ -9,14 +9,14 @@
     <div class="col-md-4">
         <h1>Catalogue</h1>
 
-        @*@if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+        @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
         {
-         *@   <p>
+             <p>
                 <a class="btn btn-info" asp-action="Create">Create New</a>
             </p>
-        @*}*@
+        }
 
-        @foreach(string category in Model.Categories)
+        @foreach(string category in Model.Categories.Distinct())
         {
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="@category" value="@category">
@@ -70,11 +70,11 @@
                 </td>
                 <td>
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    @*@if (User.IsInRole(GlobalConstants.AdministratorRoleName))
-                    {*@
+                    @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+                    {
                         <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    @*}*@
+                    }
                 </td>
             </tr>
         }
