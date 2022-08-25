@@ -18,5 +18,12 @@ namespace MHome.Services.Data
         {
             return this.categoryRepo.AllAsNoTracking();
         }
+
+        public bool ExistById(int id)
+        {
+            return this.categoryRepo
+                .AllAsNoTracking()
+                .FirstOrDefault(c => c.Id == id) != null;
+        }
     }
 }

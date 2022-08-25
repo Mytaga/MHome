@@ -1,8 +1,6 @@
 ﻿using MHome.Data.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MHome.Services.Data
@@ -16,5 +14,7 @@ namespace MHome.Services.Data
         ICollection<string> GetAllFurnitureCategories();
 
         Task<Furniture> GetById(string id);
+
+        Task AddFurniture(Furniture furniture);
     }
 }

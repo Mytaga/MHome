@@ -7,5 +7,7 @@ namespace MHome.Services.Data
     public interface ICategoryService
     {
         IQueryable<Category> All();
+
+        bool ExistById(int id);
     }
 }

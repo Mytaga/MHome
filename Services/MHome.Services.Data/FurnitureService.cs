@@ -55,5 +55,11 @@ namespace MHome.Services.Data
                 .Select(f => f.Category.Name)
                 .ToArray();
         }
+
+        public async Task AddFurniture(Furniture furniture)
+        {
+            await this.furnitureRepo.AddAsync(furniture);
+            await this.furnitureRepo.SaveChangesAsync();
+        }
     }
 }
