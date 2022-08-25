@@ -7,4 +7,5 @@ A simple furniture store with following features :
 - Login
 - Logout
 - Register user
+- Add products and categories
 - Shopping cart /in progress../
