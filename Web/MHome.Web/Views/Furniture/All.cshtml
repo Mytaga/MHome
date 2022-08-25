@@ -16,7 +16,7 @@
             </p>
         }
 
-        @foreach(string category in Model.Categories.Distinct())
+        @foreach(string category in Model.Categories)
         {
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="@category" value="@category">
