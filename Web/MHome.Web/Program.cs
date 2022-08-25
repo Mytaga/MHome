@@ -35,7 +35,9 @@
         private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(
-                options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                options => options
+                .UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
+                .UseLazyLoadingProxies());
 
             services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)
                 .AddRoles<ApplicationRole>().AddEntityFrameworkStores<ApplicationDbContext>();
