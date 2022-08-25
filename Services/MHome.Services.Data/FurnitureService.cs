@@ -44,7 +44,7 @@ namespace MHome.Services.Data
         public async Task<Furniture> GetById(string id)
         {
             return await this.furnitureRepo
-                .AllAsNoTracking()
+                .All()
                 .FirstOrDefaultAsync(f => f.Id == id);
         }
 
