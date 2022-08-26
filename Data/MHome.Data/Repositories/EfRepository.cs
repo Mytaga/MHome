@@ -48,6 +48,8 @@
             GC.SuppressFinalize(this);
         }
 
+        public void SaveChanges() => this.Context.SaveChanges();
+
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)

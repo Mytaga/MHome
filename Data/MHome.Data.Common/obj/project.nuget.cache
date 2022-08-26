@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "1Je1Jivb5lFsY4yEWZP4blw/YErkrZhuy9whyxRIjqy+734+JRlQnXWV7xCKGmHthgs4ipKyfyNSbg2lhLdeZg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\PTO\\Downloads\\M-Home\\Data\\MHome.Data.Common\\MHome.Data.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PTO\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
+    "C:\\Users\\PTO\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512",
+    "C:\\Users\\PTO\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
