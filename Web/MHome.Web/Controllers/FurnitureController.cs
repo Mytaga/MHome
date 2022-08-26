@@ -19,7 +19,7 @@ namespace MHome.Web.Controllers
         public FurnitureController(IFurnitureService furnitureService, ICategoryService categoryService)
         {
             this.furnitureService = furnitureService;
-            this.categoryService = categoryService;      
+            this.categoryService = categoryService;
         }
 
         [HttpGet]
@@ -72,7 +72,7 @@ namespace MHome.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
-            var furniture = await this.furnitureService.GetById(id);
+            var furniture = await this.furnitureService.GetByIdАsync(id);
 
             if (furniture == null)
             {
@@ -82,6 +82,36 @@ namespace MHome.Web.Controllers
             DetailsFurnitureViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsFurnitureViewModel>(furniture);
 
             return this.View(viewModel);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult Delete(string id)
+        {
+            var furniture = this.furnitureService.GetById(id);
+
+            if (furniture == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            return this.View();
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult DeleteConfirmed(string id)
+        {
+            var furniture = this.furnitureService.GetById(id);
+
+            if (furniture == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            this.furnitureService.DeleteFurniture(furniture);
+            return this.RedirectToAction("All", "Furniture");
         }
     }
 }
