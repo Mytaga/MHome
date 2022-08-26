@@ -18,5 +18,7 @@ namespace MHome.Web.ViewModels.FurnitureViewModels
         public string Dimensions { get; set; }
 
         public int StockQuantity { get; set; }
+
+        public string CategoryName { get; set; }
     }
 }
