@@ -41,18 +41,12 @@ namespace MHome.Services.Data
             return this.furnitureRepo.All();
         }
 
-        public async Task<Furniture> GetById(string id)
-        {
-            return await this.furnitureRepo
-                .All()
-                .FirstOrDefaultAsync(f => f.Id == id);
-        }
-
         public ICollection<string> GetAllFurnitureCategories()
         {
             return this.furnitureRepo
                 .AllAsNoTracking()
                 .Select(f => f.Category.Name)
+                .Distinct()
                 .ToArray();
         }
 
@@ -60,6 +54,26 @@ namespace MHome.Services.Data
         {
             await this.furnitureRepo.AddAsync(furniture);
             await this.furnitureRepo.SaveChangesAsync();
+        }
+
+        public void DeleteFurniture(Furniture furniture)
+        {
+            this.furnitureRepo.Delete(furniture);
+            this.furnitureRepo.SaveChanges();
+        }
+
+        public Furniture GetById(string id)
+        {
+            return this.furnitureRepo
+               .All()
+               .FirstOrDefault(f => f.Id == id);
+        }
+
+        public async Task<Furniture> GetByIdАsync(string id)
+        {
+            return await this.furnitureRepo
+                .All()
+                .FirstOrDefaultAsync(f => f.Id == id);
         }
     }
 }

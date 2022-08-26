@@ -13,8 +13,12 @@ namespace MHome.Services.Data
 
         ICollection<string> GetAllFurnitureCategories();
 
-        Task<Furniture> GetById(string id);
+        Task<Furniture> GetByIdАsync(string id);
+
+        Furniture GetById(string id);
 
         Task AddFurniture(Furniture furniture);
+
+        void DeleteFurniture(Furniture furniture);
     }
 }
