@@ -125,9 +125,31 @@ namespace MHome.Web.Controllers
                 return this.RedirectToAction("Error", "Home");
             }
 
-            EditFurnitureViewModel viewModel = AutoMapperConfig.MapperInstance.Map<EditFurnitureViewModel>(furniture);
+            EditFurnitureViewModel viewModel =
+                AutoMapperConfig.MapperInstance.Map<EditFurnitureViewModel>(furniture);
+
+            ICollection<ListCategoriesOnFurnitureViewModel> allCategories =
+                this.categoryService.All().To<ListCategoriesOnFurnitureViewModel>().ToArray();
+
+            viewModel.Categories = allCategories;
 
             return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult Edit(EditFurnitureInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("Create", "Furniture");
+            }
+
+            Furniture furniture = AutoMapperConfig.MapperInstance.Map<Furniture>(model);
+
+            this.furnitureService.EditFurniture(furniture);
+
+            return this.RedirectToAction("All", "Furniture");
         }
     }
 }
