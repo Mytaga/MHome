@@ -5,13 +5,8 @@ using System.Collections.Generic;
 
 namespace MHome.Web.ViewModels.FurnitureViewModels
 {
-    public class EditFurnitureViewModel : IMapFrom<Furniture>, IHaveCustomMappings
+    public class EditFurnitureViewModel : IMapFrom<Furniture>
     {
-        public EditFurnitureViewModel()
-        {
-            this.Categories = new List<ListCategoriesOnFurnitureViewModel>();
-        }
-
         public string Id { get; set; }
 
         public string Name { get; set; }
@@ -27,12 +22,5 @@ namespace MHome.Web.ViewModels.FurnitureViewModels
         public int StockQuantity { get; set; }
 
         public ICollection<ListCategoriesOnFurnitureViewModel> Categories { get; set; }
-
-        public void CreateMappings(IProfileExpression configuration)
-        {
-            configuration.CreateMap<Category, ListCategoriesOnFurnitureViewModel>()
-                .ForMember(d => d.Id, mo => mo.MapFrom(s => s.Id))
-                .ForMember(d => d.Name, mo => mo.MapFrom(s => s.Name));
-        }
     }
 }
