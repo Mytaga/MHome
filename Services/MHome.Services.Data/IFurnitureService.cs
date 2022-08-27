@@ -20,5 +20,7 @@ namespace MHome.Services.Data
         Task AddFurniture(Furniture furniture);
 
         void DeleteFurniture(Furniture furniture);
+
+        void EditFurniture(Furniture furniture);
     }
 }

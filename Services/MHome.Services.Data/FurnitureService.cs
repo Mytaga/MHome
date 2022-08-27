@@ -75,5 +75,11 @@ namespace MHome.Services.Data
                 .All()
                 .FirstOrDefaultAsync(f => f.Id == id);
         }
+
+        public void EditFurniture(Furniture furniture)
+        {
+            this.furnitureRepo.Update(furniture);
+            this.furnitureRepo.SaveChanges();
+        }
     }
 }
