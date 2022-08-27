@@ -113,5 +113,21 @@ namespace MHome.Web.Controllers
             this.furnitureService.DeleteFurniture(furniture);
             return this.RedirectToAction("All", "Furniture");
         }
+
+        [HttpGet]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult Edit(string id)
+        {
+            var furniture = this.furnitureService.GetById(id);
+
+            if (furniture == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            EditFurnitureViewModel viewModel = AutoMapperConfig.MapperInstance.Map<EditFurnitureViewModel>(furniture);
+
+            return this.View(viewModel);
+        }
     }
 }
