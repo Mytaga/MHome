@@ -142,7 +142,12 @@ namespace MHome.Web.Controllers
         {
             if (!this.ModelState.IsValid)
             {
-                return this.RedirectToAction("Create", "Furniture");
+                return this.RedirectToAction("Edit", "Furniture");
+            }
+
+            if (!this.categoryService.ExistById(model.CategoryId))
+            {
+                return this.RedirectToAction("Edit", "Furniture");
             }
 
             Furniture furniture = AutoMapperConfig.MapperInstance.Map<Furniture>(model);
