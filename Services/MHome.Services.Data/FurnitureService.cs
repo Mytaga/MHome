@@ -76,10 +76,10 @@ namespace MHome.Services.Data
                 .FirstOrDefaultAsync(f => f.Id == id);
         }
 
-        public void EditFurniture(Furniture furniture)
+        public async Task EditFurniture(Furniture furniture)
         {
             this.furnitureRepo.Update(furniture);
-            this.furnitureRepo.SaveChanges();
+            await this.furnitureRepo.SaveChangesAsync();
         }
     }
 }

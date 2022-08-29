@@ -1,6 +1,7 @@
 ﻿using MHome.Data.Common.Repositories;
 using MHome.Data.Models;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MHome.Services.Data
 {
@@ -23,6 +24,12 @@ namespace MHome.Services.Data
             return this.categoryRepo
                 .AllAsNoTracking()
                 .FirstOrDefault(c => c.Id == id) != null;
+        }
+
+        public async Task AddCategory(Category category)
+        {
+            await this.categoryRepo.AddAsync(category);
+            await this.categoryRepo.SaveChangesAsync();
         }
     }
 }
