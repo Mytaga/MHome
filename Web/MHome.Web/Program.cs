@@ -69,6 +69,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddScoped<IFurnitureService, FurnitureService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IAccessoryService, AccessoryService>();
         }
 
         private static void Configure(WebApplication app)
