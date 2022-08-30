@@ -3,7 +3,6 @@ using MHome.Data.Models;
 using MHome.Services.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 using System.Threading.Tasks;
 
 namespace MHome.Web.Controllers
