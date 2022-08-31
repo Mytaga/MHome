@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MHome.Data.Models.Accessory>
+﻿@using MHome.Common
+@model MHome.Web.ViewModels.AccesoryViewModels.AllAccessoriesViewModel
 
 @{
     ViewData["Title"] = "All";
@@ -6,54 +7,69 @@
 
 <h1>Catalog</h1>
 
-<p>
-    <a asp-action="Create">Create Accessory</a>
-</p>
+<div class="row">
+    <div class="col-md-4">
+        <h1>Catalogue</h1>
+
+        @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+        {
+            <p>
+                <a class="btn btn-info" asp-action="Create">Create New</a>
+            </p>
+        }
+    </div>
+    <div class="col-md-6 justify-content-end">
+        <form method="get" asp-controller="Accessory" asp-action="All" class="mt-5">
+            <div class="input-group">
+                @if (Model.SearchQuery == null)
+                {
+                    <input type="text" name="search" class="form-control" placeholder="Search....">
+                }
+                else
+                {
+                    <input type="text" name="search" class="form-control" value="@Model.SearchQuery">
+                }
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageURL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StockQuantity)
+                Price
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageURL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StockQuantity)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.AllAccessories)
+        {
+            <tr name="trData">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+                    {
+                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
