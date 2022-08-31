@@ -17,9 +17,10 @@ namespace MHome.Services.Data
             this.accessoryRepo = accessoryRepo;
         }
 
-        public Task AddAccessory(Accessory accessory)
+        public async Task AddAccessory(Accessory accessory)
         {
-            throw new NotImplementedException();
+            await this.accessoryRepo.AddAsync(accessory);
+            await this.accessoryRepo.SaveChangesAsync();
         }
 
         public void DeleteAccesory(Accessory accessory)
