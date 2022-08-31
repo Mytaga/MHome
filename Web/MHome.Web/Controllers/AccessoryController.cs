@@ -72,5 +72,21 @@ namespace MHome.Web.Controllers
 
             return this.View(viewModel);
         }
+
+        [HttpGet]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult Delete(string id)
+        {
+            var accessory = this.accessoryService.GetById(id);
+
+            if (accessory == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            this.accessoryService.DeleteAccesory(accessory);
+
+            return this.View();
+        }
     }
 }
