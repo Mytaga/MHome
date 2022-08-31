@@ -3,6 +3,7 @@ using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
 using MHome.Web.ViewModels.AccesoryViewModels;
+using MHome.Web.ViewModels.AccessoryViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -54,6 +55,22 @@ namespace MHome.Web.Controllers
             await this.accessoryService.AddAccessory(accessory);
 
             return this.RedirectToAction("All", "Accessory");
+        }
+
+        [HttpGet]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> Details(string id)
+        {
+            var accessory = await this.accessoryService.GetByIdАsync(id);
+
+            if (accessory == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            AccessoryDetailsViewModel viewModel = AutoMapperConfig.MapperInstance.Map<AccessoryDetailsViewModel>(accessory);
+
+            return this.View(viewModel);
         }
     }
 }
