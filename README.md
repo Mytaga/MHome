@@ -9,5 +9,5 @@ A simple furniture store with following features :
 - Register user
 - Add, edit, delete products /only admin/
 - Add, edit, delete catrgories /only admin/
-- Add, edit, deleted accessories /only admin/
+- Add, edit, delete accessories /only admin/
 - Shopping cart /in progress../
