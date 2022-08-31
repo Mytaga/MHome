@@ -25,7 +25,8 @@ namespace MHome.Services.Data
 
         public void DeleteAccesory(Accessory accessory)
         {
-            throw new NotImplementedException();
+            this.accessoryRepo.Delete(accessory);
+            this.accessoryRepo.SaveChanges();
         }
 
         public Task EditAccessory(Accessory accessory)
