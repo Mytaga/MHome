@@ -3,8 +3,10 @@ using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
 using MHome.Web.ViewModels.AccessoryViewModels;
+using MHome.Web.ViewModels.FurnitureViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -98,6 +100,39 @@ namespace MHome.Web.Controllers
             }
 
             this.accessoryService.DeleteAccesory(accessory);
+            return this.RedirectToAction("All", "Accessory");
+        }
+
+        [HttpGet]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult Edit(string id)
+        {
+            var accessory = this.accessoryService.GetById(id);
+
+            if (accessory == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            EditAccessoryViewModel viewModel =
+                AutoMapperConfig.MapperInstance.Map<EditAccessoryViewModel>(accessory);
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult Edit(EditAccessoryInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("Edit", "Furniture");
+            }
+
+            var accessory = AutoMapperConfig.MapperInstance.Map<Accessory>(model);
+
+            this.accessoryService.EditAccessory(accessory);
+
             return this.RedirectToAction("All", "Accessory");
         }
     }

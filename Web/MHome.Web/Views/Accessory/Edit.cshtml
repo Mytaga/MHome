@@ -1,16 +1,16 @@
-﻿@model MHome.Data.Models.Accessory
+﻿@model MHome.Web.ViewModels.AccessoryViewModels.EditAccessoryViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Add Accessory</h1>
+<h1>Edit Accessory</h1>
 
 <h4>Accessory</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -31,14 +31,14 @@
                 <label asp-for="ImageURL" class="control-label"></label>
                 <input asp-for="ImageURL" class="form-control" />
                 <span asp-validation-for="ImageURL" class="text-danger"></span>
-            </div>
+            </div>      
             <div class="form-group">
                 <label asp-for="StockQuantity" class="control-label"></label>
                 <input asp-for="StockQuantity" class="form-control" />
                 <span asp-validation-for="StockQuantity" class="text-danger"></span>
             </div>
             <div class="form-group mt-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
                 <a class="btn btn-primary" asp-action="All">Back</a>
             </div>
         </form>
@@ -46,7 +46,5 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
