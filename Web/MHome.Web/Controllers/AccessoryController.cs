@@ -2,7 +2,6 @@
 using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
-using MHome.Web.ViewModels.AccesoryViewModels;
 using MHome.Web.ViewModels.AccessoryViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -58,7 +57,6 @@ namespace MHome.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public async Task<IActionResult> Details(string id)
         {
             var accessory = await this.accessoryService.GetByIdАsync(id);
@@ -84,9 +82,23 @@ namespace MHome.Web.Controllers
                 return this.RedirectToAction("Error", "Home");
             }
 
-            this.accessoryService.DeleteAccesory(accessory);
-
             return this.View();
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult DeleteConfirmed(string id)
+        {
+            var accessory = this.accessoryService.GetById(id);
+
+            if (accessory == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            this.accessoryService.DeleteAccesory(accessory);
+            return this.RedirectToAction("All", "Accessory");
         }
     }
 }
