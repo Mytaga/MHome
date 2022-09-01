@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MHome.Data.Models;
+﻿using MHome.Data.Models;
 using MHome.Services.Mapping;
 using System.Collections.Generic;
 

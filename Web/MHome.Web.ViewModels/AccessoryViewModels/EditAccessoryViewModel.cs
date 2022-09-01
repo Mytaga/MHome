@@ -1,9 +1,11 @@
 ﻿using MHome.Data.Models;
+using MHome.Data.Models.Common;
 using MHome.Services.Mapping;
+using System.ComponentModel.DataAnnotations;
 
 namespace MHome.Web.ViewModels.AccessoryViewModels
 {
-    public class AccessoryDetailsViewModel : IMapFrom<Accessory>
+    public class EditAccessoryViewModel : IMapFrom<Accessory>
     {
         public string Name { get; set; }
 

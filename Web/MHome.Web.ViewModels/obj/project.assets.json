@@ -1148,19 +1148,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mitko\\.nuget\\packages\\": {}
+    "C:\\Users\\PTO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mitko\\Desktop\\M-Home\\Web\\MHome.Web.ViewModels\\MHome.Web.ViewModels.csproj",
+      "projectUniqueName": "C:\\Users\\PTO\\Downloads\\M-Home\\Web\\MHome.Web.ViewModels\\MHome.Web.ViewModels.csproj",
       "projectName": "MHome.Web.ViewModels",
-      "projectPath": "C:\\Users\\mitko\\Desktop\\M-Home\\Web\\MHome.Web.ViewModels\\MHome.Web.ViewModels.csproj",
-      "packagesPath": "C:\\Users\\mitko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mitko\\Desktop\\M-Home\\Web\\MHome.Web.ViewModels\\obj\\",
+      "projectPath": "C:\\Users\\PTO\\Downloads\\M-Home\\Web\\MHome.Web.ViewModels\\MHome.Web.ViewModels.csproj",
+      "packagesPath": "C:\\Users\\PTO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PTO\\Downloads\\M-Home\\Web\\MHome.Web.ViewModels\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mitko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PTO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1174,11 +1174,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\mitko\\Desktop\\M-Home\\Data\\MHome.Data.Models\\MHome.Data.Models.csproj": {
-              "projectPath": "C:\\Users\\mitko\\Desktop\\M-Home\\Data\\MHome.Data.Models\\MHome.Data.Models.csproj"
+            "C:\\Users\\PTO\\Downloads\\M-Home\\Data\\MHome.Data.Models\\MHome.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\PTO\\Downloads\\M-Home\\Data\\MHome.Data.Models\\MHome.Data.Models.csproj"
             },
-            "C:\\Users\\mitko\\Desktop\\M-Home\\Services\\MHome.Services.Mapping\\MHome.Services.Mapping.csproj": {
-              "projectPath": "C:\\Users\\mitko\\Desktop\\M-Home\\Services\\MHome.Services.Mapping\\MHome.Services.Mapping.csproj"
+            "C:\\Users\\PTO\\Downloads\\M-Home\\Services\\MHome.Services.Mapping\\MHome.Services.Mapping.csproj": {
+              "projectPath": "C:\\Users\\PTO\\Downloads\\M-Home\\Services\\MHome.Services.Mapping\\MHome.Services.Mapping.csproj"
             }
           }
         }
