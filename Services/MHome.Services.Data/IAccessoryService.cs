@@ -1,5 +1,4 @@
 ﻿using MHome.Data.Models;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,6 +16,6 @@ namespace MHome.Services.Data
 
         void DeleteAccesory(Accessory accessory);
 
-        Task EditAccessory(Accessory accessory);
+        void EditAccessory(Accessory accessory);
     }
 }

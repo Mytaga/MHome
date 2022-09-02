@@ -31,5 +31,12 @@ namespace MHome.Services.Data
             await this.categoryRepo.AddAsync(category);
             await this.categoryRepo.SaveChangesAsync();
         }
+
+        public Category GetById(int id)
+        {
+            return this.categoryRepo
+                .All()
+                .FirstOrDefault(c => c.Id == id);
+        }
     }
 }

@@ -59,7 +59,7 @@ namespace MHome.Services.Data
         public void DeleteFurniture(Furniture furniture)
         {
             this.furnitureRepo.Delete(furniture);
-            this.furnitureRepo.SaveChanges();
+            this.furnitureRepo.SaveChangesAsync();
         }
 
         public Furniture GetById(string id)
@@ -76,10 +76,10 @@ namespace MHome.Services.Data
                 .FirstOrDefaultAsync(f => f.Id == id);
         }
 
-        public async Task EditFurniture(Furniture furniture)
+        public void EditFurniture(Furniture furniture)
         {
             this.furnitureRepo.Update(furniture);
-            await this.furnitureRepo.SaveChangesAsync();
+            this.furnitureRepo.SaveChanges();
         }
     }
 }

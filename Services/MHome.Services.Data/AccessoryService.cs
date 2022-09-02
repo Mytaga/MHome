@@ -29,9 +29,10 @@ namespace MHome.Services.Data
             this.accessoryRepo.SaveChanges();
         }
 
-        public Task EditAccessory(Accessory accessory)
+        public void EditAccessory(Accessory accessory)
         {
-            throw new NotImplementedException();
+            this.accessoryRepo.Update(accessory);
+            this.accessoryRepo.SaveChanges();
         }
 
         public IQueryable<Accessory> GetAllByName(string searchName = "")
