@@ -138,7 +138,7 @@ namespace MHome.Web.Controllers
 
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-        public IActionResult Edit(EditFurnitureInputModel model)
+        public IActionResult Edit(string id, EditFurnitureInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
@@ -150,7 +150,15 @@ namespace MHome.Web.Controllers
                 return this.RedirectToAction("Edit", "Furniture");
             }
 
-            Furniture furniture = AutoMapperConfig.MapperInstance.Map<Furniture>(model);
+            Furniture furniture = this.furnitureService.GetById(id);
+            Category category = this.categoryService.GetById(model.CategoryId);
+
+            furniture.Name = model.Name;
+            furniture.Description = model.Description;
+            furniture.Price = model.Price;
+            furniture.Dimensions = model.Dimensions;
+            furniture.Category = category;
+            furniture.StockQuantity = model.StockQuantity;
 
             this.furnitureService.EditFurniture(furniture);
 

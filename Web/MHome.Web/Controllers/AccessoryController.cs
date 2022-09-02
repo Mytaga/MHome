@@ -122,14 +122,20 @@ namespace MHome.Web.Controllers
 
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-        public IActionResult Edit(EditAccessoryInputModel model)
+        public IActionResult Edit(string id, EditAccessoryInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.RedirectToAction("Edit", "Furniture");
             }
 
-            var accessory = AutoMapperConfig.MapperInstance.Map<Accessory>(model);
+            Accessory accessory = this.accessoryService.GetById(id);
+
+            accessory.Name = model.Name;
+            accessory.Description = model.Description;
+            accessory.Price = model.Price;
+            accessory.ImageURL = model.ImageURL;
+            accessory.StockQuantity = model.StockQuantity;
 
             this.accessoryService.EditAccessory(accessory);
 
