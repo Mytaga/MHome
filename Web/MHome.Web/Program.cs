@@ -70,6 +70,7 @@
             services.AddScoped<IFurnitureService, FurnitureService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IAccessoryService, AccessoryService>();
+            services.AddScoped<IOrderService, OrderService>();
         }
 
         private static void Configure(WebApplication app)
