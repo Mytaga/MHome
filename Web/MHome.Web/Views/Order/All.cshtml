@@ -1,0 +1,60 @@
+﻿@model MHome.Web.ViewModels.OrderViewModels.AllOrdersViewModel
+
+@{
+    ViewData["Title"] = "All";
+}
+
+<h1>All Orders</h1>
+
+<div class="row">
+    <div class="col-md-6 justify-content-end">
+        <form method="get" asp-controller="Order" asp-action="All" class="mt-5">
+            <div class="input-group">
+                @if (Model.SearchQuery == null)
+                {
+                    <input type="text" name="search" class="form-control" placeholder="Search....">
+                }
+                else
+                {
+                    <input type="text" name="search" class="form-control" value="@Model.SearchQuery">
+                }
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Client Name
+            </th>
+            <th>
+                Total Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AllOrders)
+        {
+            <tr name="trData">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)$
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
