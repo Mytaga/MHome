@@ -61,3 +61,24 @@ C:\Users\mitko\Desktop\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.We
 C:\Users\mitko\Desktop\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\refint\MHome.Web.ViewModels.dll
 C:\Users\mitko\Desktop\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.pdb
 C:\Users\mitko\Desktop\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\ref\MHome.Web.ViewModels.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Web.ViewModels.deps.json
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Web.ViewModels.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Web.ViewModels.pdb
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Data.Common.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Data.Models.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Services.Mapping.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Data.Models.pdb
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Services.Mapping.pdb
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Data.Common.pdb
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\bin\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.csproj.AssemblyReference.cache
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.AssemblyInfoInputs.cache
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.AssemblyInfo.cs
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.csproj.CopyComplete
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\refint\MHome.Web.ViewModels.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\MHome.Web.ViewModels.pdb
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\Web\MHome.Web.ViewModels\obj\Debug\net6.0\ref\MHome.Web.ViewModels.dll
