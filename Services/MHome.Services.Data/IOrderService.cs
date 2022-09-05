@@ -1,12 +1,12 @@
 ﻿using MHome.Data.Models;
-using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MHome.Services.Data
 {
     public interface IOrderService
     {
-        ICollection<Order> All();
+        IQueryable<Order> GetAllByName(string searchName = "");
 
         Task<Order> GetByIdАsync(string id);
 

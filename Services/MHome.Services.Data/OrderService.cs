@@ -2,12 +2,14 @@
 using MHome.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MHome.Services.Data
 {
     public class OrderService : IOrderService
     {
+        private const string EmptyString = "";
         private readonly IDeletableEntityRepository<Order> orderRepo;
 
         public OrderService(IDeletableEntityRepository<Order> orderRepo)
@@ -20,14 +22,21 @@ namespace MHome.Services.Data
             throw new NotImplementedException();
         }
 
-        public ICollection<Order> All()
+        public void DeleteOrder(Order order)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteOrder(Order order)
+        public IQueryable<Order> GetAllByName(string searchName = EmptyString)
         {
-            throw new NotImplementedException();
+            if (searchName != null)
+            {
+                return this.orderRepo
+                    .AllAsNoTracking()
+                    .Where(f => $"{f.Client.FirstName + f.Client.LastName}".ToLower().Contains(searchName.ToLower()));
+            }
+
+            return this.orderRepo.All();
         }
 
         public Order GetById(string id)
