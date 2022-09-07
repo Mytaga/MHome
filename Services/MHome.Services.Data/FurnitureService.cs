@@ -81,5 +81,12 @@ namespace MHome.Services.Data
             this.furnitureRepo.Update(furniture);
             this.furnitureRepo.SaveChanges();
         }
+
+        public bool ExistById(string id)
+        {
+            return this.furnitureRepo
+              .AllAsNoTracking()
+              .FirstOrDefault(c => c.Id == id) != null;
+        }
     }
 }

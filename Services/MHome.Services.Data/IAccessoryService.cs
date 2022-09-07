@@ -17,5 +17,7 @@ namespace MHome.Services.Data
         void DeleteAccesory(Accessory accessory);
 
         void EditAccessory(Accessory accessory);
+
+        bool ExistById(string id);
     }
 }

@@ -1,7 +1,6 @@
 ﻿using MHome.Data.Common.Repositories;
 using MHome.Data.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,9 +16,10 @@ namespace MHome.Services.Data
             this.orderRepo = orderRepo;
         }
 
-        public Task AddOrder(Order order)
+        public async Task AddOrder(Order order)
         {
-            throw new NotImplementedException();
+            await this.orderRepo.AddAsync(order);
+            await this.orderRepo.SaveChangesAsync();
         }
 
         public void DeleteOrder(Order order)

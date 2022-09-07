@@ -22,5 +22,7 @@ namespace MHome.Services.Data
         void DeleteFurniture(Furniture furniture);
 
         void EditFurniture(Furniture furniture);
+
+        bool ExistById(string id);
     }
 }
