@@ -11,6 +11,8 @@ namespace MHome.Web.ViewModels.OrderViewModels
 {
     public class ListAllOrdersViewModel : IMapFrom<Order>
     {
+        public string Id { get; set; }
+
         public string ClientName { get; set; }
 
         public DateTime TimeOfOrder { get; set; }
