@@ -47,18 +47,37 @@ namespace MHome.Web.Controllers
 
         public async Task<IActionResult> Create(string id, CreateOrderInputViewModel model)
         {
+            var clientId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            model.ClientId = clientId;
+
             if (this.furnitureService.ExistById(id))
             {
                 var product = await this.furnitureService.GetByIdАsync(id);
+
+                if (model.Quantity <= product.StockQuantity)
+                {
+                    model.TotalPrice = product.Price * model.Quantity;
+                    product.StockQuantity -= model.Quantity;
+                }
+                else
+                {
+                    return this.RedirectToAction("Error", "Home");
+                }
             }
 
             if (this.accessoryService.ExistById(id))
             {
                 var product = await this.accessoryService.GetByIdАsync(id);
+                if (model.Quantity <= product.StockQuantity)
+                {
+                    model.TotalPrice = product.Price * model.Quantity;
+                    product.StockQuantity -= model.Quantity;
+                }
+                else
+                {
+                    return this.RedirectToAction("Error", "Home");
+                }
             }
-
-            var clientId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            model.ClientId = clientId;
 
             Order order = AutoMapperConfig.MapperInstance.Map<Order>(model);
 

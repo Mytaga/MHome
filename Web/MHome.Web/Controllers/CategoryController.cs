@@ -16,11 +16,6 @@ namespace MHome.Web.Controllers
             this.categoryService = categoryService;
         }
 
-        public IActionResult Index()
-        {
-            return this.View();
-        }
-
         [HttpGet]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult Create()
