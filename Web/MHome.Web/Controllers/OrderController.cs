@@ -2,6 +2,7 @@
 using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
+using MHome.Web.ViewModels.FurnitureViewModels;
 using MHome.Web.ViewModels.OrderViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -118,5 +119,21 @@ namespace MHome.Web.Controllers
             this.orderService.DeleteOrder(order);
             return this.RedirectToAction("All", "Order");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(string id)
+        {
+            var order = await this.orderService.GetByIdАsync(id);
+
+            if (order == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            DetailsOrderViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsOrderViewModel>(order);
+
+            return this.View(viewModel);
+        }
+
     }
 }
