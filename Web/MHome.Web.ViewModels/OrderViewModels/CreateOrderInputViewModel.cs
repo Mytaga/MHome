@@ -11,11 +11,9 @@ namespace MHome.Web.ViewModels.OrderViewModels
 
         public int Quantity { get; set; }
 
-        public decimal Price { get; set; }
-
         public DateTime TimeOfOrder => DateTime.Now;
 
-        public decimal TotalPrice => this.Quantity * this.Price;
+        public decimal TotalPrice { get; set; }
 
         public DeliveryType DeliveryType { get; set; }
     }
