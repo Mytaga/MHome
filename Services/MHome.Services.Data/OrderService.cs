@@ -1,5 +1,6 @@
 ﻿using MHome.Data.Common.Repositories;
 using MHome.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,7 +25,8 @@ namespace MHome.Services.Data
 
         public void DeleteOrder(Order order)
         {
-            throw new NotImplementedException();
+            this.orderRepo.Delete(order);
+            this.orderRepo.SaveChanges();
         }
 
         public IQueryable<Order> GetAllByName(string searchName = EmptyString)
@@ -33,7 +35,7 @@ namespace MHome.Services.Data
             {
                 return this.orderRepo
                     .AllAsNoTracking()
-                    .Where(f => $"{f.Client.FirstName + f.Client.LastName}".ToLower().Contains(searchName.ToLower()));
+                    .Where(f => f.Client.FirstName.ToLower().Contains(searchName.ToLower()));
             }
 
             return this.orderRepo.All();
@@ -41,12 +43,16 @@ namespace MHome.Services.Data
 
         public Order GetById(string id)
         {
-            throw new NotImplementedException();
+            return this.orderRepo
+                .All()
+                .FirstOrDefault(o => o.Id == id);
         }
 
-        public Task<Order> GetByIdАsync(string id)
+        public async Task<Order> GetByIdАsync(string id)
         {
-            throw new NotImplementedException();
+            return await this.orderRepo
+                 .All()
+                 .FirstOrDefaultAsync(o => o.Id == id);
         }
     }
 }

@@ -35,6 +35,13 @@ namespace MHome.Services.Data
             this.accessoryRepo.SaveChanges();
         }
 
+        public bool ExistById(string id)
+        {
+            return this.accessoryRepo
+               .AllAsNoTracking()
+               .FirstOrDefault(c => c.Id == id) != null;
+        }
+
         public IQueryable<Accessory> GetAllByName(string searchName = "")
         {
             if (searchName != null)
