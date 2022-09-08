@@ -1,9 +1,10 @@
-﻿using MHome.Data.Models;
+﻿using MHome.Common;
+using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
 using MHome.Web.ViewModels.OrderViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -15,12 +16,14 @@ namespace MHome.Web.Controllers
         private readonly IOrderService orderService;
         private readonly IFurnitureService furnitureService;
         private readonly IAccessoryService accessoryService;
+        private readonly IClientService clientService;
 
-        public OrderController(IOrderService orderService, IFurnitureService furnitureService, IAccessoryService accessoryService)
+        public OrderController(IOrderService orderService, IFurnitureService furnitureService, IAccessoryService accessoryService, IClientService clientService)
         {
             this.orderService = orderService;
             this.furnitureService = furnitureService;
             this.accessoryService = accessoryService;
+            this.clientService = clientService;
         }
 
         [HttpGet]
@@ -84,6 +87,36 @@ namespace MHome.Web.Controllers
             await this.orderService.AddOrder(order);
 
             return this.RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult Delete(string id)
+        {
+            var order = this.orderService.GetById(id);
+
+            if (order == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            return this.View();
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult DeleteConfirmed(string id)
+        {
+            var order = this.orderService.GetById(id);
+
+            if (order == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            this.orderService.DeleteOrder(order);
+            return this.RedirectToAction("All", "Order");
         }
     }
 }
