@@ -34,7 +34,7 @@ namespace MHome.Web.Controllers
 
             AllOrdersViewModel viewModel = new AllOrdersViewModel()
             {
-                AllOrders = allOrders.To<ListAllOrdersViewModel>().ToArray(),
+                AllOrders = allOrders.To<ListAllOrdersViewModel>().OrderBy(o => o.TimeOfOrder).ToArray(),
                 SearchQuery = search,
             };
 
