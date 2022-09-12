@@ -61,7 +61,7 @@
                 </td>
                 <td>
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated && !User.IsInRole(GlobalConstants.AdministratorRoleName))
                     {
                         <a class="btn btn-info" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
                     }
