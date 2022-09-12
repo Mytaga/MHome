@@ -1,6 +1,4 @@
-﻿using MHome.Data.Common.Models;
-using MHome.Data.Models.Common;
-using System;
+﻿using MHome.Data.Models.Common;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,14 +14,6 @@ namespace MHome.Data.Models
             this.PaymentCards = new List<CardInfo>();
             this.Orders = new List<Order>();
         }
-
-        [Required]
-        [MaxLength(ClientValidationConstants.FirstNameMaxLength)]
-        public string FirstName { get; set; }
-
-        [Required]
-        [MaxLength(ClientValidationConstants.LastNameMaxLength)]
-        public string LastName { get; set; }
 
         [ForeignKey(nameof(Address))]
         public string AddressId { get; set; }

@@ -3,9 +3,9 @@ namespace MHome.Data.Models
 {
     using System;
     using System.Collections.Generic;
-
+    using System.ComponentModel.DataAnnotations;
     using MHome.Data.Common.Models;
-
+    using MHome.Data.Models.Common;
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
@@ -17,6 +17,12 @@ namespace MHome.Data.Models
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
         }
+
+        [MaxLength(ClientValidationConstants.FirstNameMaxLength)]
+        public string FirstName { get; set; }
+
+        [MaxLength(ClientValidationConstants.LastNameMaxLength)]
+        public string LastName { get; set; }
 
         // Audit info
         public DateTime CreatedOn { get; set; }
