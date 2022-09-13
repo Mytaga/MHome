@@ -134,6 +134,8 @@ namespace MHome.Web.Controllers
 
             DetailsOrderViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsOrderViewModel>(order);
 
+            viewModel.ClientName = order.Client.FirstName + " " + order.Client.LastName;
+
             return this.View(viewModel);
         }
 
