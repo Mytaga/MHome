@@ -52,7 +52,7 @@ namespace MHome.Web.Controllers
         public async Task<IActionResult> Create(string id, CreateOrderInputViewModel model)
         {
             var clientId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            model.ClientId = clientId;
+            model.ApplicationUserId = clientId;
 
             if (this.furnitureService.ExistById(id))
             {
@@ -84,6 +84,8 @@ namespace MHome.Web.Controllers
             }
 
             Order order = AutoMapperConfig.MapperInstance.Map<Order>(model);
+            var client = this.clientService.GetById(clientId);
+            order.Client = client;
 
             await this.orderService.AddOrder(order);
 
