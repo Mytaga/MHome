@@ -4,6 +4,7 @@ using MHome.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MHome.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220912122920_ApplicationUserAddedProps")]
+    partial class ApplicationUserAddedProps
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -486,7 +488,8 @@ namespace MHome.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ApplicationUserId")
+                    b.Property<string>("ClientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -512,7 +515,7 @@ namespace MHome.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("ClientId");
 
                     b.HasIndex("IsDeleted");
 
@@ -816,9 +819,11 @@ namespace MHome.Data.Migrations
 
             modelBuilder.Entity("MHome.Data.Models.Order", b =>
                 {
-                    b.HasOne("MHome.Data.Models.ApplicationUser", "Client")
+                    b.HasOne("MHome.Data.Models.Client", "Client")
                         .WithMany("Orders")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Client");
                 });
@@ -911,8 +916,6 @@ namespace MHome.Data.Migrations
 
                     b.Navigation("Logins");
 
-                    b.Navigation("Orders");
-
                     b.Navigation("Roles");
                 });
 
@@ -931,6 +934,8 @@ namespace MHome.Data.Migrations
                     b.Navigation("BoughtAccessories");
 
                     b.Navigation("BoughtFurniture");
+
+                    b.Navigation("Orders");
 
                     b.Navigation("PaymentCards");
                 });

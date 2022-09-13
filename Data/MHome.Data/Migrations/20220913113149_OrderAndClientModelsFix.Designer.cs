@@ -4,6 +4,7 @@ using MHome.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MHome.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220913113149_OrderAndClientModelsFix")]
+    partial class OrderAndClientModelsFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -486,9 +488,6 @@ namespace MHome.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -511,8 +510,6 @@ namespace MHome.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("IsDeleted");
 
@@ -814,15 +811,6 @@ namespace MHome.Data.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("MHome.Data.Models.Order", b =>
-                {
-                    b.HasOne("MHome.Data.Models.ApplicationUser", "Client")
-                        .WithMany("Orders")
-                        .HasForeignKey("ApplicationUserId");
-
-                    b.Navigation("Client");
-                });
-
             modelBuilder.Entity("MHome.Data.Models.Store", b =>
                 {
                     b.HasOne("MHome.Data.Models.Address", "Address")
@@ -910,8 +898,6 @@ namespace MHome.Data.Migrations
                     b.Navigation("Claims");
 
                     b.Navigation("Logins");
-
-                    b.Navigation("Orders");
 
                     b.Navigation("Roles");
                 });
