@@ -34,7 +34,7 @@ namespace MHome.Web.Controllers
 
             AllOrdersViewModel viewModel = new AllOrdersViewModel()
             {
-                AllOrders = allOrders.To<ListAllOrdersViewModel>().OrderBy(o => o.TimeOfOrder).ToArray(),
+                AllOrders = allOrders.To<ListAllOrdersViewModel>().OrderByDescending(o => o.TimeOfOrder).ToArray(),
                 SearchQuery = search,
             };
 
@@ -54,6 +54,8 @@ namespace MHome.Web.Controllers
             var clientId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             model.ApplicationUserId = clientId;
 
+            Order order = null;
+
             if (this.furnitureService.ExistById(id))
             {
                 var product = await this.furnitureService.GetByIdАsync(id);
@@ -62,6 +64,8 @@ namespace MHome.Web.Controllers
                 {
                     model.TotalPrice = product.Price * model.Quantity;
                     product.StockQuantity -= model.Quantity;
+                    order = AutoMapperConfig.MapperInstance.Map<Order>(model);
+                    order.OrderedFurniture.Add(product);
                 }
                 else
                 {
@@ -76,6 +80,8 @@ namespace MHome.Web.Controllers
                 {
                     model.TotalPrice = product.Price * model.Quantity;
                     product.StockQuantity -= model.Quantity;
+                    order = AutoMapperConfig.MapperInstance.Map<Order>(model);
+                    order.OrderedAccesorries.Add(product);
                 }
                 else
                 {
@@ -83,7 +89,6 @@ namespace MHome.Web.Controllers
                 }
             }
 
-            Order order = AutoMapperConfig.MapperInstance.Map<Order>(model);
             var client = this.clientService.GetById(clientId);
             order.Client = client;
 
@@ -138,6 +143,5 @@ namespace MHome.Web.Controllers
 
             return this.View(viewModel);
         }
-
     }
 }
