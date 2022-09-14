@@ -91,6 +91,7 @@ namespace MHome.Web.Controllers
 
             var client = this.clientService.GetById(clientId);
             order.Client = client;
+            client.Orders.Add(order);
 
             await this.orderService.AddOrder(order);
 
