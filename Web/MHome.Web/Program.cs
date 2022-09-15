@@ -1,4 +1,7 @@
-﻿namespace MHome.Web
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using MHome.Data;
+namespace MHome.Web
 {
     using System.Reflection;
 
@@ -71,6 +74,8 @@
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IAccessoryService, AccessoryService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IClientService, ClientService>();
         }
 
         private static void Configure(WebApplication app)
