@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MHome.Data.Models;
 using MHome.Data.Models.Common;
+using MHome.Services.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -31,13 +32,15 @@ namespace MHome.Web.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IClientService clientService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IClientService clientService)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -45,6 +48,7 @@ namespace MHome.Web.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            this.clientService = clientService;
         }
 
         /// <summary>
@@ -122,7 +126,7 @@ namespace MHome.Web.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= this.Url.Content("~/");
-            this.ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            this.ExternalLogins = (await this._signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (this.ModelState.IsValid)
             {
                 var user = this.CreateUser();
@@ -130,13 +134,20 @@ namespace MHome.Web.Areas.Identity.Pages.Account
                 user.FirstName = this.Input.FirstName;
                 user.LastName = this.Input.LastName;
 
+                var clientProfile = new Client();
+                clientProfile.FirstName = user.FirstName;
+                clientProfile.LastName = user.LastName;
+                clientProfile.PhoneNumber = user.PhoneNumber;
+                user.Client = clientProfile;
+                await this.clientService.AddClient(clientProfile);
+
                 await _userStore.SetUserNameAsync(user, this.Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, this.Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, this.Input.Password);
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    this._logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
