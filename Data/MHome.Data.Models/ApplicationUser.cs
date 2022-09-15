@@ -4,6 +4,7 @@ namespace MHome.Data.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using MHome.Data.Common.Models;
     using MHome.Data.Models.Common;
     using Microsoft.AspNetCore.Identity;
@@ -16,6 +17,7 @@ namespace MHome.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Orders = new HashSet<Order>();
         }
 
         [MaxLength(ClientValidationConstants.FirstNameMaxLength)]
@@ -39,5 +41,12 @@ namespace MHome.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
+
+        [ForeignKey(nameof(Client))]
+        public string ClientId { get; set; }
+
+        public virtual Client Client { get; set; }
     }
 }

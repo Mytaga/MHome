@@ -4,9 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MHome.Data.Models
 {
@@ -19,13 +16,12 @@ namespace MHome.Data.Models
             this.OrderedAccesorries = new List<Accessory>();
         }
 
-        [Required]
         [ForeignKey(nameof(Client))]
-        public string ClientId { get; set; }
+        public string ApplicationUserId { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
 
         public DateTime TimeOfOrder { get; set; }
-
-        public virtual Client Client { get; set; }
 
         public decimal TotalPrice { get; set; }
 
