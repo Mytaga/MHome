@@ -37,7 +37,7 @@
                         @if (User.Identity.IsAuthenticated && !User.IsInRole(GlobalConstants.AdministratorRoleName))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Accessory" asp-action="All">Profile</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Profile" asp-action="Create">Profile</a>
                             </li>
                         }
                         @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
