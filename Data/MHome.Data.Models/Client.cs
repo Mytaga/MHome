@@ -31,6 +31,8 @@ namespace MHome.Data.Models
 
         public string PhoneNumber { get; set; }
 
+        public string ImageUrl { get; set; }
+
         [ForeignKey(nameof(ClietnCard))]
         public string ClientCardId { get; set; }
 
