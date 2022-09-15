@@ -34,7 +34,7 @@ namespace MHome.Services.Data
             {
                 return this.orderRepo
                     .AllAsNoTracking()
-                    .Where(f => f.Client.FirstName.ToLower().Contains(searchName.ToLower()));
+                    .Where(f => f.User.FirstName.ToLower().Contains(searchName.ToLower()));
             }
 
             return this.orderRepo.All();

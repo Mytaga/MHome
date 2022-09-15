@@ -5,8 +5,8 @@ namespace MHome.Services.Data
 {
     public interface IClientService
     {
-        Task<ApplicationUser> GetByIdАsync(string id);
+        Task<Client> GetByIdАsync(string id);
 
-        ApplicationUser GetById(string id);
+        Client GetById(string id);
     }
 }
