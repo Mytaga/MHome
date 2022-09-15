@@ -12,7 +12,7 @@ namespace MHome.Web.Controllers
             this.clientService = clientService;
         }
 
-        public IActionResult Main()
+        public IActionResult Create()
         {
             return this.View();
         }

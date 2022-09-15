@@ -2,7 +2,6 @@
 using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
-using MHome.Web.ViewModels.FurnitureViewModels;
 using MHome.Web.ViewModels.OrderViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,14 +16,14 @@ namespace MHome.Web.Controllers
         private readonly IOrderService orderService;
         private readonly IFurnitureService furnitureService;
         private readonly IAccessoryService accessoryService;
-        private readonly IClientService clientService;
+        private readonly IUserService userService;
 
-        public OrderController(IOrderService orderService, IFurnitureService furnitureService, IAccessoryService accessoryService, IClientService clientService)
+        public OrderController(IOrderService orderService, IFurnitureService furnitureService, IAccessoryService accessoryService, IUserService userService)
         {
             this.orderService = orderService;
             this.furnitureService = furnitureService;
             this.accessoryService = accessoryService;
-            this.clientService = clientService;
+            this.userService = userService;
         }
 
         [HttpGet]
@@ -51,8 +50,8 @@ namespace MHome.Web.Controllers
 
         public async Task<IActionResult> Create(string id, CreateOrderInputViewModel model)
         {
-            var clientId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            model.ApplicationUserId = clientId;
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            model.ApplicationUserId = userId;
 
             Order order = null;
 
@@ -89,10 +88,9 @@ namespace MHome.Web.Controllers
                 }
             }
 
-            var client = this.clientService.GetById(clientId);
-            order.Client = client;
-            client.Orders.Add(order);
-
+            var user = this.userService.GetById(userId);
+            order.User = user;
+            user.Orders.Add(order);
             await this.orderService.AddOrder(order);
 
             return this.RedirectToAction("Index", "Home");
@@ -140,7 +138,7 @@ namespace MHome.Web.Controllers
 
             DetailsOrderViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsOrderViewModel>(order);
 
-            viewModel.ClientName = order.Client.FirstName + " " + order.Client.LastName;
+            viewModel.ClientName = order.User.FirstName + " " + order.User.LastName;
 
             return this.View(viewModel);
         }
