@@ -1,6 +1,7 @@
 ﻿using MHome.Data.Common.Repositories;
 using MHome.Data.Models;
-using System;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MHome.Services.Data
@@ -9,14 +10,25 @@ namespace MHome.Services.Data
     {
         private readonly IDeletableEntityRepository<Client> clientRepo;
 
-        public Client GetById(string id)
+        public ClientService(IDeletableEntityRepository<Client> clientRepo)
         {
-            throw new NotImplementedException();
+            this.clientRepo = clientRepo;
         }
 
-        public Task<Client> GetByIdАsync(string id)
+        public async Task AddClient(Client client)
         {
-            throw new NotImplementedException();
+            await this.clientRepo.AddAsync(client);
+            await this.clientRepo.SaveChangesAsync();
+        }
+
+        public Client GetById(string id)
+        {
+            return this.clientRepo.All().FirstOrDefault(c => c.Id == id);
+        }
+
+        public async Task<Client> GetByIdАsync(string id)
+        {
+            return await this.clientRepo.All().FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }

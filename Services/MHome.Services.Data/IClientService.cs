@@ -8,5 +8,7 @@ namespace MHome.Services.Data
         Task<Client> GetByIdАsync(string id);
 
         Client GetById(string id);
+
+        Task AddClient(Client client);
     }
 }
