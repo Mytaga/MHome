@@ -39,6 +39,6 @@
 </div>
 <div>
     <a class="btn btn-info" asp-controller="Home" asp-action="Index">Back</a>
-    <a class="btn btn-info" asp-controller="Profile" asp-action="Details">Details</a>
-    <a class="btn btn-info" asp-controller="Profile" asp-action="Edit">Edit</a>
+    <a class="btn btn-info" asp-action="Details" asp-route-id="@Model.Id">Details</a>
+    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
 </div>
