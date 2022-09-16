@@ -30,9 +30,19 @@ namespace MHome.Web.Controllers
             return this.View(viewModel);
         }
 
-        public IActionResult Create()
+        [HttpGet]
+        public IActionResult Edit(string id)
         {
-            return this.View();
+            var profile = this.clientService.GetById(id);
+
+            if (profile == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            EditProfileViewModel viewModel = AutoMapperConfig.MapperInstance.Map<EditProfileViewModel>(profile);
+
+            return this.View(viewModel);
         }
     }
 }
