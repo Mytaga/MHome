@@ -1,4 +1,5 @@
-﻿using MHome.Services.Data;
+﻿using MHome.Data.Models;
+using MHome.Services.Data;
 using MHome.Services.Mapping;
 using MHome.Web.ViewModels.ProfileViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,13 @@ namespace MHome.Web.Controllers
     {
         private readonly IClientService clientService;
         private readonly IUserService userService;
+        private readonly IAddressService addressService;
 
-        public ProfileController(IClientService clientService, IUserService userService)
+        public ProfileController(IClientService clientService, IUserService userService, IAddressService addressService)
         {
             this.clientService = clientService;
             this.userService = userService;
+            this.addressService = addressService;
         }
 
         public IActionResult Main()
@@ -43,6 +46,35 @@ namespace MHome.Web.Controllers
             EditProfileViewModel viewModel = AutoMapperConfig.MapperInstance.Map<EditProfileViewModel>(profile);
 
             return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(string id, EditProfileInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("Edit", "Furniture");
+            }
+
+            Client client = this.clientService.GetById(id);
+
+            Address address = new Address()
+            {
+                AddressText = model.Address,
+                TownName = model.Town,
+            };
+
+            this.addressService.AddAddress(address);
+
+            client.FirstName = model.FirstName;
+            client.LastName = model.LastName;
+            client.PhoneNumber = model.PhoneNumber;
+            client.ImageUrl = model.ImageURL;
+            client.Address = address;
+
+            this.clientService.EditClient(client);
+
+            return this.RedirectToAction("Main", "Profile");
         }
     }
 }
