@@ -21,6 +21,12 @@ namespace MHome.Services.Data
             await this.clientRepo.SaveChangesAsync();
         }
 
+        public void EditClient(Client client)
+        {
+            this.clientRepo.Update(client);
+            this.clientRepo.SaveChanges();
+        }
+
         public Client GetById(string id)
         {
             return this.clientRepo.All().FirstOrDefault(c => c.Id == id);

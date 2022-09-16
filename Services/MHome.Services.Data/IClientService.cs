@@ -10,5 +10,7 @@ namespace MHome.Services.Data
         Client GetById(string id);
 
         Task AddClient(Client client);
+
+        void EditClient(Client client);
     }
 }
