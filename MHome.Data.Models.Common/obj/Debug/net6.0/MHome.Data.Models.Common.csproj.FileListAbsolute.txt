@@ -1,0 +1,60 @@
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.deps.json
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.AssemblyReference.cache
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfoInputs.cache
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfo.cs
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.CoreCompileInputs.cache
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\refint\MHome.Data.Models.Common.dll
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\source\repos\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\ref\MHome.Data.Models.Common.dll
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.deps.json
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.AssemblyReference.cache
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfoInputs.cache
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfo.cs
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.CoreCompileInputs.cache
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\refint\MHome.Data.Models.Common.dll
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\PTO\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\ref\MHome.Data.Models.Common.dll
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.deps.json
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.AssemblyReference.cache
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfoInputs.cache
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfo.cs
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.CoreCompileInputs.cache
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\refint\MHome.Data.Models.Common.dll
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\Desktop\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\ref\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.deps.json
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.AssemblyReference.cache
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfoInputs.cache
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfo.cs
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.CoreCompileInputs.cache
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\refint\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\Downloads\M-Home (1)\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\ref\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.deps.json
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\bin\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.AssemblyReference.cache
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfoInputs.cache
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.AssemblyInfo.cs
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.csproj.CoreCompileInputs.cache
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\refint\MHome.Data.Models.Common.dll
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\MHome.Data.Models.Common.pdb
+C:\Users\mitko\Downloads\M-Home\MHome.Data.Models.Common\obj\Debug\net6.0\ref\MHome.Data.Models.Common.dll
