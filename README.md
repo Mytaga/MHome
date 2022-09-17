@@ -12,4 +12,5 @@ A simple furniture store with following features :
 - Add, edit, delete accessories /only admin/
 - Make orders
 - Shopping cart /in progress../
-- View all made orders /only admin/
+- View all made orders by all customers /only admin/
+- Profile section - personal data & tracks all orders made by the client /only registered users/
