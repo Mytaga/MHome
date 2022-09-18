@@ -1,7 +1,7 @@
 # MHome
 Furniture store web app
 
-Build with ASP.NET CORE /Model-View-Controller/
+Build with ASP.NET CORE /Model-View-Controller/ && Entity Framework Core
 
 A simple furniture store with following features :
 - Login
