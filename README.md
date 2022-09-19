@@ -8,9 +8,9 @@ A simple furniture store with following features :
 - Logout
 - Register user
 - Add, edit, delete products /only admin/
-- Add, edit, delete catrgories /only admin/
+- Add, edit, delete categories /only admin/
 - Add, edit, delete accessories /only admin/
 - Make orders
 - Shopping cart /in progress../
 - View all made orders by all customers /only admin/
-- Profile section - personal data & tracks all orders made by the client /only registered users/
+- Profile section - personal data & tracks all orders made by the client and bought furniutre and accessories /only registered users/
