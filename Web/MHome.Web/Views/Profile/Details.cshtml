@@ -1,0 +1,149 @@
+﻿@model MHome.Web.ViewModels.ProfileViewModels.DetailsProfileViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Profle</h4>
+    <hr />
+    <dl class="row">
+        <div class="col-md-4">
+            <dt class="col-sm-2 mt-4">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Town)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Town)
+            </dd>
+        </div>
+        <div class="col-md-8">
+            <img class="img-thumbnail mx-auto mt-4" style="width: 400px" src="@Model.ImageUrl" alt="@Model.FirstName" />
+        </div>
+    </dl>
+</div>
+
+<div>
+    <h4>Bought Furniture</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BoughtFurniture)
+            {
+                <tr name="trData">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)$
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Bought Accessories</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BoughtAccessories)
+            {
+                <tr name="trData">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)$
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Orders Made</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    TimeOfOrder
+                </th>
+                <th>
+                    TotalPrice
+                </th>
+                <th>
+                    DeliveryType
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                <tr name="trData">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeOfOrder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPrice)$
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeliveryType)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a class="btn btn-info" asp-action="Main">Back</a>
+</div>
