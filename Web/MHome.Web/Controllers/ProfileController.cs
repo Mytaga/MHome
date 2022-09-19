@@ -1,9 +1,11 @@
 ﻿using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
+using MHome.Web.ViewModels.FurnitureViewModels;
 using MHome.Web.ViewModels.ProfileViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace MHome.Web.Controllers
 {
@@ -64,6 +66,8 @@ namespace MHome.Web.Controllers
                 TownName = model.Town,
             };
 
+            address.Clients.Add(client);
+
             this.addressService.AddAddress(address);
 
             client.FirstName = model.FirstName;
@@ -75,6 +79,21 @@ namespace MHome.Web.Controllers
             this.clientService.EditClient(client);
 
             return this.RedirectToAction("Main", "Profile");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(string id)
+        {
+            var clientProfile = await this.clientService.GetByIdАsync(id);
+
+            if (clientProfile == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            DetailsProfileViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsProfileViewModel>(clientProfile);
+
+            return this.View(viewModel);
         }
     }
 }

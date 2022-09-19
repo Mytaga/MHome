@@ -17,13 +17,15 @@ namespace MHome.Web.Controllers
         private readonly IFurnitureService furnitureService;
         private readonly IAccessoryService accessoryService;
         private readonly IUserService userService;
+        private readonly IClientService clientService;
 
-        public OrderController(IOrderService orderService, IFurnitureService furnitureService, IAccessoryService accessoryService, IUserService userService)
+        public OrderController(IOrderService orderService, IFurnitureService furnitureService, IAccessoryService accessoryService, IUserService userService, IClientService clientService)
         {
             this.orderService = orderService;
             this.furnitureService = furnitureService;
             this.accessoryService = accessoryService;
             this.userService = userService;
+            this.clientService = clientService;
         }
 
         [HttpGet]
@@ -52,6 +54,9 @@ namespace MHome.Web.Controllers
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             model.ApplicationUserId = userId;
+            var user = this.userService.GetById(userId);
+
+            Client client = this.clientService.GetById(user.Client.Id);
 
             Order order = null;
 
@@ -65,6 +70,7 @@ namespace MHome.Web.Controllers
                     product.StockQuantity -= model.Quantity;
                     order = AutoMapperConfig.MapperInstance.Map<Order>(model);
                     order.OrderedFurniture.Add(product);
+                    client.BoughtFurniture.Add(product);
                 }
                 else
                 {
@@ -81,6 +87,7 @@ namespace MHome.Web.Controllers
                     product.StockQuantity -= model.Quantity;
                     order = AutoMapperConfig.MapperInstance.Map<Order>(model);
                     order.OrderedAccesorries.Add(product);
+                    client.BoughtAccessories.Add(product);
                 }
                 else
                 {
@@ -88,9 +95,12 @@ namespace MHome.Web.Controllers
                 }
             }
 
-            var user = this.userService.GetById(userId);
+            
             order.User = user;
             user.Orders.Add(order);
+
+            client.Orders.Add(order);
+
             await this.orderService.AddOrder(order);
 
             return this.RedirectToAction("Index", "Home");
