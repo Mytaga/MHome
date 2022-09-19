@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using MHome.Data.Models;
 using MHome.Services.Mapping;
+using System.Collections.Generic;
 
 namespace MHome.Web.ViewModels.ProfileViewModels
 {
-    public class EditProfileViewModel : IMapFrom<Client>, IHaveCustomMappings
+    public class DetailsProfileViewModel : IMapFrom<Client>, IHaveCustomMappings
     {
-        public string Id { get; set; }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -20,9 +19,15 @@ namespace MHome.Web.ViewModels.ProfileViewModels
 
         public string ImageUrl { get; set; }
 
+        public ICollection<ProfileBoughtFurnitureViewModel> BoughtFurniture { get; set; }
+
+        public ICollection<ProfileBoughtAccessoryViewModel> BoughtAccessories { get; set; }
+
+        public ICollection<ProfileMadeOrdersViewModel> Orders { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
-            configuration.CreateMap<Client, EditProfileViewModel>()
+            configuration.CreateMap<Client, DetailsProfileViewModel>()
                 .ForMember(d => d.Address, mo => mo.MapFrom(s => s.Address.AddressText))
                 .ForMember(d => d.Town, mo => mo.MapFrom(s => s.Address.TownName));
         }
