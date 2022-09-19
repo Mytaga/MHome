@@ -4,10 +4,9 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Profile Details</h1>
 
 <div>
-    <h4>Profle</h4>
     <hr />
     <dl class="row">
         <div class="col-md-4">
@@ -43,16 +42,16 @@
             </dd>
         </div>
         <div class="col-md-8">
-            <img class="img-thumbnail mx-auto mt-4" style="width: 400px" src="@Model.ImageUrl" alt="@Model.FirstName" />
+            <img class="img-thumbnail mx-auto mt-4 mb-4" style="width: 300px" src="@Model.ImageUrl" alt="@Model.FirstName" />
         </div>
     </dl>
 </div>
 
-<div>
+<div class="mt-4">
     <h4>Bought Furniture</h4>
     <table class="table">
         <thead>
-            <tr>
+            <tr class="table-info">
                 <th>
                     Name
                 </th>
@@ -78,11 +77,11 @@
     </table>
 </div>
 
-<div>
+<div class="mt-4">
     <h4>Bought Accessories</h4>
     <table class="table">
         <thead>
-            <tr>
+            <tr class="table-info">
                 <th>
                     Name
                 </th>
@@ -108,20 +107,21 @@
     </table>
 </div>
 
-<div>
-    <h4>Orders Made</h4>
+
+<div class="mt-4">
+    <h4>Completed Orders</h4>
     <table class="table">
         <thead>
-            <tr>
+            <tr class="table-info">
                 <th>
-                    TimeOfOrder
+                    Time Of Order
                 </th>
                 <th>
-                    TotalPrice
+                    Total Price
                 </th>
                 <th>
-                    DeliveryType
-                </th>
+                    Delivery Type
+                </th>   
                 <th></th>
             </tr>
         </thead>
@@ -144,6 +144,9 @@
     </table>
 </div>
 
-<div>
+<p>
+</p>
+
+<div class="mt-4 mb-4 justify-content-md-center">
     <a class="btn btn-info" asp-action="Main">Back</a>
 </div>
