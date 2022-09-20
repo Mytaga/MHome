@@ -58,11 +58,14 @@
                 <th>
                     Price
                 </th>
+                <th>
+                    Category
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.BoughtFurniture)
+            @foreach (var item in Model.BoughtFurniture.OrderByDescending(bf => bf.Price))
             {
                 <tr name="trData">
                     <td>
@@ -70,6 +73,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)$
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
                     </td>
                 </tr>
             }
@@ -92,7 +98,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.BoughtAccessories)
+            @foreach (var item in Model.BoughtAccessories.OrderByDescending(ba => ba.Price))
             {
                 <tr name="trData">
                     <td>
@@ -126,7 +132,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Orders)
+            @foreach (var item in Model.Orders.OrderByDescending(o => o.TimeOfOrder))
             {
                 <tr name="trData">
                     <td>
