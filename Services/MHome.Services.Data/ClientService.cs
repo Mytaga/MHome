@@ -24,7 +24,7 @@ namespace MHome.Services.Data
         public void EditClient(Client client)
         {
             this.clientRepo.Update(client);
-            this.clientRepo.SaveChanges();
+            this.clientRepo.SaveChangesAsync();
         }
 
         public Client GetById(string id)
