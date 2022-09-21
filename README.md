@@ -14,3 +14,4 @@ A simple furniture store with following features :
 - Shopping cart /in progress../
 - View all made orders by all customers /only admin/
 - Profile section - personal data & tracks all orders made by the client and bought furniutre and accessories /only registered users/
+- Add Client Card to profile with discount for shoping
