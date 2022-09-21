@@ -77,6 +77,7 @@ namespace MHome.Web
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<IClientCardService, ClientCardService>();
         }
 
         private static void Configure(WebApplication app)
