@@ -20,6 +20,8 @@ namespace MHome.Web.ViewModels.ProfileViewModels
 
         public string ImageUrl { get; set; }
 
+        public string ClientCard { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Client, ListProfileViewModel>()

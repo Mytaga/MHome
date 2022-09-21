@@ -19,6 +19,8 @@ namespace MHome.Web.ViewModels.ProfileViewModels
 
         public string ImageUrl { get; set; }
 
+        public string ClientCard { get; set; }
+
         public ICollection<ProfileBoughtFurnitureViewModel> BoughtFurniture { get; set; }
 
         public ICollection<ProfileBoughtAccessoryViewModel> BoughtAccessories { get; set; }
