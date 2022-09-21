@@ -1,7 +1,6 @@
 ﻿using MHome.Data.Models;
 using MHome.Services.Data;
 using MHome.Services.Mapping;
-using MHome.Web.ViewModels.FurnitureViewModels;
 using MHome.Web.ViewModels.ProfileViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -31,6 +30,15 @@ namespace MHome.Web.Controllers
             var clientProfile = user.Client;
 
             ListProfileViewModel viewModel = AutoMapperConfig.MapperInstance.Map<ListProfileViewModel>(clientProfile);
+
+            if (clientProfile.ClietnCard == null)
+            {
+                viewModel.ClientCard = "No";
+            }
+            else
+            {
+                viewModel.ClientCard = "Yes";
+            }
 
             return this.View(viewModel);
         }
@@ -92,6 +100,15 @@ namespace MHome.Web.Controllers
             }
 
             DetailsProfileViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsProfileViewModel>(clientProfile);
+
+            if (clientProfile.ClietnCard == null)
+            {
+                viewModel.ClientCard = "No";
+            }
+            else
+            {
+                viewModel.ClientCard = "Yes";
+            }
 
             return this.View(viewModel);
         }
