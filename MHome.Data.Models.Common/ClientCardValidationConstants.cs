@@ -9,6 +9,6 @@ namespace MHome.Data.Models.Common
     public static class ClientCardValidationConstants
     {
         public const int CardNumberMaxLength = 25;
-        public const int ExpirationDateMaxLength = 5;
+        public const int ExpirationDateMaxLength = 25;
     }
 }
