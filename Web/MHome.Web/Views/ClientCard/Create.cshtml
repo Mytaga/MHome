@@ -11,16 +11,18 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">          
+            <div class="form-group">
             </div>
             <div class="form-group mt-3">
-                <input type="submit" value="Generate" class="btn btn-primary" />
-                <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Back</a>
+                <input type="submit" value="Generate" class="btn btn-dark" />
+                <a class="btn btn-dark" asp-controller="Home" asp-action="Index">Back</a>
             </div>
         </form>
     </div>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+@section Scripts {     
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");     
+    }
+ }
