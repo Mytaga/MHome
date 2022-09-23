@@ -1,6 +1,8 @@
 # MHome
 Furniture store web app
 
+![M-Home](https://user-images.githubusercontent.com/86414839/192029646-835cca71-3ff8-419b-905e-fec526cb98fe.jpg)
+
 Build with ASP.NET CORE /Model-View-Controller/ && Entity Framework Core
 
 A simple furniture store with following features :
