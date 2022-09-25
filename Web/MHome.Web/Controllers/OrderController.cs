@@ -66,7 +66,15 @@ namespace MHome.Web.Controllers
 
                 if (model.Quantity <= product.StockQuantity)
                 {
-                    model.TotalPrice = product.Price * model.Quantity;
+                    if (client.ClietnCard != null)
+                    {
+                        model.TotalPrice = product.Price * 0.9M * model.Quantity;
+                    }
+                    else
+                    {
+                        model.TotalPrice = product.Price * model.Quantity;
+                    }
+
                     product.StockQuantity -= model.Quantity;
                     order = AutoMapperConfig.MapperInstance.Map<Order>(model);
                     order.OrderedFurniture.Add(product);
@@ -83,7 +91,15 @@ namespace MHome.Web.Controllers
                 var product = await this.accessoryService.GetByIdАsync(id);
                 if (model.Quantity <= product.StockQuantity)
                 {
-                    model.TotalPrice = product.Price * model.Quantity;
+                    if (client.ClietnCard != null)
+                    {
+                        model.TotalPrice = product.Price * 0.9M * model.Quantity;
+                    }
+                    else
+                    {
+                        model.TotalPrice = product.Price * model.Quantity;
+                    }
+
                     product.StockQuantity -= model.Quantity;
                     order = AutoMapperConfig.MapperInstance.Map<Order>(model);
                     order.OrderedAccesorries.Add(product);
@@ -95,7 +111,6 @@ namespace MHome.Web.Controllers
                 }
             }
 
-            
             order.User = user;
             user.Orders.Add(order);
 
