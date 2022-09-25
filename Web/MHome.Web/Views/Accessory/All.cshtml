@@ -57,7 +57,15 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)$
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <s>
+                            @Html.DisplayFor(modelItem => item.Price)$
+                        </s>
+                    }
+                    <p style="color: red">
+                        @Html.DisplayFor(modelItem => item.PriceWithDiscount)$
+                    </p>
                 </td>
                 <td>
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>

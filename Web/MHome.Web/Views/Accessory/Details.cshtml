@@ -27,7 +27,15 @@
                 @Html.DisplayNameFor(model => model.Price)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Price)$
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <s>
+                        @Html.DisplayFor(modelItem => Model.Price)$
+                    </s>
+                }
+                <p style="color: red">
+                    @Html.DisplayFor(modelItem => Model.PriceWithDiscount)$
+                </p>
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.StockQuantity)
