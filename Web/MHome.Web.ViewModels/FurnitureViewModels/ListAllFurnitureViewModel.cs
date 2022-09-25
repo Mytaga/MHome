@@ -15,6 +15,8 @@ namespace MHome.Web.ViewModels.FurnitureViewModels
 
         public decimal Price { get; set; }
 
+        public decimal PriceWithDiscount => this.Price * 0.90M;
+
         public string Dimensions { get; set; }
 
         public int StockQuantity { get; set; }
