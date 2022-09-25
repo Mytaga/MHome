@@ -9,6 +9,8 @@ namespace MHome.Web.ViewModels.ProfileViewModels
 
         public decimal Price { get; set; }
 
+        public decimal PriceWithDiscount => this.Price * 0.90M;
+
         public string CategoryName { get; set; }
     }
 }
