@@ -62,10 +62,16 @@
                         <s>
                             @Html.DisplayFor(modelItem => item.Price)$
                         </s>
+                        <p style="color: red">
+                            @Html.DisplayFor(modelItem => item.PriceWithDiscount)$
+                        </p>
                     }
-                    <p style="color: red">
-                        @Html.DisplayFor(modelItem => item.PriceWithDiscount)$
-                    </p>
+                    else
+                    {
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Price)$
+                        </p>
+                    }
                 </td>
                 <td>
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>

@@ -32,10 +32,16 @@
                     <s>
                         @Html.DisplayFor(modelItem => Model.Price)$
                     </s>
+                    <p style="color: red">
+                        @Html.DisplayFor(modelItem => Model.PriceWithDiscount)$
+                    </p>
                 }
-                <p style="color: red">
-                    @Html.DisplayFor(modelItem => Model.PriceWithDiscount)$
-                </p>
+                else
+                {
+                    <p>
+                        @Html.DisplayFor(modelItem => Model.Price)$
+                    </p>
+                }
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Dimensions)
