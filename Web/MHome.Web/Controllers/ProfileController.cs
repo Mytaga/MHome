@@ -112,5 +112,50 @@ namespace MHome.Web.Controllers
 
             return this.View(viewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> DetailsBoughtFurniture(string id)
+        {
+            var clientProfile = await this.clientService.GetByIdАsync(id);
+
+            if (clientProfile == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            DetailsProfileViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsProfileViewModel>(clientProfile);
+
+            return this.View(viewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DetailsBoughtAccessories(string id)
+        {
+            var clientProfile = await this.clientService.GetByIdАsync(id);
+
+            if (clientProfile == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            DetailsProfileViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsProfileViewModel>(clientProfile);
+
+            return this.View(viewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DetailsCompletedOrders(string id)
+        {
+            var clientProfile = await this.clientService.GetByIdАsync(id);
+
+            if (clientProfile == null)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            DetailsProfileViewModel viewModel = AutoMapperConfig.MapperInstance.Map<DetailsProfileViewModel>(clientProfile);
+
+            return this.View(viewModel);
+        }
     }
 }
