@@ -1,0 +1,48 @@
+﻿@model MHome.Web.ViewModels.ProfileViewModels.DetailsProfileViewModel
+
+@{
+    ViewData["Title"] = "Completed Orders";
+}
+
+<h1>Completed Orders</h1>
+
+<div class="table table-responsive">
+    <table class="table">
+        <thead>
+            <tr class="table-info">
+                <th>
+                    Time Of Order
+                </th>
+                <th>
+                    Total Price
+                </th>
+                <th>
+                    Delivery Type
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders.OrderByDescending(o => o.TimeOfOrder))
+            {
+                <tr name="trData">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeOfOrder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPrice)$
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeliveryType)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<p>
+</p>
+
+<div class="mt-4 mb-4 justify-content-md-center">
+    <a class="btn btn-info" asp-action="Main">Back</a>
+</div>

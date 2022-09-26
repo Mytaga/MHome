@@ -1,0 +1,42 @@
+﻿@model MHome.Web.ViewModels.ProfileViewModels.DetailsProfileViewModel
+
+@{
+    ViewData["Title"] = "Bought Accessories";
+}
+
+<h1>Bought Accessories</h1>
+
+<div class="table table-responsive">
+    <table class="table" style="text-align:left">
+        <thead>
+            <tr class="table-info">
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BoughtAccessories.OrderByDescending(ba => ba.Price))
+            {
+                <tr name="trData">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PriceWithDiscount)$
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<p>
+</p>
+
+<div class="mt-4 mb-4 justify-content-md-center">
+    <a class="btn btn-info" asp-action="Main">Back</a>
+</div>
