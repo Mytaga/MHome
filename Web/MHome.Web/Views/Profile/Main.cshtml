@@ -47,23 +47,20 @@
                 @Html.DisplayFor(model => model.ClientCard)
             </dd>
         </div>
+        <div class="col-md-8">
+            <img class="img-thumbnail mx-auto mt-4" style="width: 350px" src="@Model.ImageUrl" alt="@Model.FirstName" />
+        </div>
      
-    <div class="col-md-8">
-          <img class="img-thumbnail mx-auto mt-4" style="width: 300px" src="@Model.ImageUrl" alt="@Model.FirstName" />
-     </div>
     </dl>
 </div>
 
-<div class="mt-2">
-    <a class="btn btn-dark" asp-action="DetailsBoughtFurniture" asp-route-id="@Model.Id">Bought Furniture</a>   
-</div>
-<div class="mt-2">
+<div align="center" class="mt-4">
+    <a class="btn btn-dark" asp-action="DetailsBoughtFurniture" asp-route-id="@Model.Id">Bought Furniture</a>
     <a class="btn btn-dark" asp-action="DetailsBoughtAccessories" asp-route-id="@Model.Id">Bought Accessories</a>
-</div>
-<div class="mt-2">
     <a class="btn btn-dark" asp-action="DetailsCompletedOrders" asp-route-id="@Model.Id">Completed Orders</a>
-</div>
-<div class ="mt-2">
-    <a class="btn btn-info" asp-controller="Home" asp-action="Index">Back</a>
-    <a class="btn btn-info" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+ </div> 
+
+<div align="center" class="mt-4">
+    <a class="btn btn-dark" asp-controller="Home" asp-action="Index">Back</a>
+    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
 </div>
