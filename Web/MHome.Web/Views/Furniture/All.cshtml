@@ -46,24 +46,31 @@
 </div>
 
 
-<table class="table mt-4">
+<table class="table table-sm table-striped mt-4">
     <thead>
-        <tr>
+        <tr class="table-info">
             <th>
                 Name
             </th>     
             <th>
                 Price
             </th>
-            <th></th>
+            <th>
+                Category
+            </th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.AllFurniture)
         {
-            <tr name="trData">
+            <tr name="trData" class="table-info">
                 <td> 
-                    @Html.DisplayFor(modelItem => item.Name)
+                    <strong>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </strong>           
                 </td>
                 <td>
                     @if (User.Identity.IsAuthenticated)
@@ -81,6 +88,11 @@
                             @Html.DisplayFor(modelItem => item.Price)$
                         </p>
                     }
+                </td>
+                <td>
+                    <strong>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </strong>              
                 </td>
                 <td>
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
