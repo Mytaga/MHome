@@ -37,24 +37,28 @@
     </div>
 </div>
 
-<table class="table mt-4">
+<table class="table table-sm table-striped mt-5">
     <thead>
-        <tr>
+        <tr class="table-info" style="font-size: 20px">
             <th>
                 Name
             </th>
             <th>
                 Price
             </th>
-            <th></th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.AllAccessories)
         {
-            <tr name="trData">
+            <tr name="trData" class="table-info">
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    <strong>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </strong>
                 </td>
                 <td>
                     @if (User.Identity.IsAuthenticated)
