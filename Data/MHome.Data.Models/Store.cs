@@ -28,6 +28,14 @@ namespace MHome.Data.Models
         public string Description { get; set; }
 
         [Required]
+        [MaxLength(StoreValidationConstants.EmailMaxLength)]
+        public string Email { get; set; }
+
+        [Required]
+        [MaxLength(StoreValidationConstants.PhoneNumberMaxLength)]
+        public string PhoneNumber { get; set; }
+
+        [Required]
         [ForeignKey(nameof(Address))]
         public string AddressId { get; set; }
 
