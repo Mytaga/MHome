@@ -1,7 +1,6 @@
 ﻿using MHome.Data.Models;
 using MHome.Data.Models.Common;
 using MHome.Services.Mapping;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MHome.Web.ViewModels.FurnitureViewModels
