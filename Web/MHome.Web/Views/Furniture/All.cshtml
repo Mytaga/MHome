@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h1>Catalogue</h1>
+        <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Catalogue</h1>
 
         @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
         {
@@ -24,7 +24,7 @@
             </div>
         }
     </div>
-    <div class="col-md-6 justify-content-end">
+    <div class="col-md-6 justify-content-end" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
         <form method="get" asp-controller="Furniture" asp-action="All" class="mt-5">
             <div class="input-group">
                 @if (Model.SearchQuery == null)
@@ -46,9 +46,9 @@
 </div>
 
 
-<table class="table table-sm table-striped mt-4">
+<table class="table table-sm table-striped mt-5">
     <thead>
-        <tr class="table-info">
+        <tr class="table-info" style="font-size: 20px">
             <th>
                 Name
             </th>     
@@ -66,7 +66,7 @@
     <tbody>
         @foreach (var item in Model.AllFurniture)
         {
-            <tr name="trData" class="table-info">
+            <tr name="trData" class="table-info" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
                 <td> 
                     <strong>
                         @Html.DisplayFor(modelItem => item.Name)

@@ -10,21 +10,21 @@
     <h4>Furniture</h4>
     <hr />
     <dl class="row">
-        <div class="col-md-4">
-            <dt class="col-sm-2 mt-4">
-                @Html.DisplayNameFor(model => model.Name)
+        <div class="col-md-4" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+            <dt class="col-sm-10 mt-4">
+                Name:
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Name)
             </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Description)
+            <dt class="col-sm-10">
+                Description:
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Description)
             </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Price)
+            <dt class="col-sm-10">
+                Price:
             </dt>
             <dd class="col-sm-10">
                 @if (User.Identity.IsAuthenticated)
@@ -43,20 +43,20 @@
                     </p>
                 }
             </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Dimensions)
+            <dt class="col-sm-10">
+                Dimensions:
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Dimensions)
             </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CategoryName)
+            <dt class="col-sm-10">
+                Category Name:
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.CategoryName)
             </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.StockQuantity)
+            <dt class="col-sm-10">
+                Stock Quantity:
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.StockQuantity)
