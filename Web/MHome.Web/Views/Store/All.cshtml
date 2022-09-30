@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h1>Stores</h1>
+        <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Stores</h1>
         @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
         {
             <p>
@@ -17,19 +17,22 @@
     </div>
 </div>
 
-@foreach (var item in Model.AllStores)
-{
-    <div class="card" style="width: 22rem;">
-        <img class="card-img-top" src="/img/M-Home.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Name: @item.Name</h5>
-            <h5 class="card-title">Phone: @item.PhoneNumber</h5>
-            <h5 class="card-title">Email: @item.Email</h5>
-            <h5 class="card-title">Address: @item.Address</h5>
-            <h5 class="card-title">Town: @item.TownName</h5>
+<div style="display: inline-flex">
+    @foreach (var item in Model.AllStores)
+    {
+        <div class="card m-3" style="width: 22rem;">
+            <img class="card-img-top" src="/img/M-Home.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Name: @item.Name</h5>
+                <h5 class="card-title" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Phone: @item.PhoneNumber</h5>
+                <h5 class="card-title" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Email: @item.Email</h5>
+                <h5 class="card-title" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Address: @item.Address</h5>
+                <h5 class="card-title" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Town: @item.TownName</h5>
+            </div>
         </div>
-    </div>
-}
+    }
+</div>
+
 
 @*table class="table table-sm table-striped mt-5">
     <thead>
