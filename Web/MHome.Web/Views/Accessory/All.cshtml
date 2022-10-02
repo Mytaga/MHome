@@ -12,7 +12,7 @@
         @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
         {
             <p>
-                <a class="btn btn-info" asp-action="Create">Create New</a>
+                <a class="btn btn-dark" asp-action="Create">Create New</a>
             </p>
         }
     </div>
@@ -28,7 +28,7 @@
                     <input type="text" name="search" class="form-control" value="@Model.SearchQuery">
                 }
                 <div class="input-group-btn">
-                    <button class="btn btn-info" type="submit">
+                    <button class="btn btn-dark" type="submit">
                         Search
                     </button>
                 </div>
@@ -78,10 +78,10 @@
                     }
                 </td>
                 <td>
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
                     @if (User.Identity.IsAuthenticated && !User.IsInRole(GlobalConstants.AdministratorRoleName))
                     {
-                        <a class="btn btn-info" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
+                        <a class="btn btn-dark" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
                     }
                     @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
                     {
