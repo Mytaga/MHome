@@ -15,14 +15,14 @@
                 <a class="btn btn-dark" asp-action="Create">Create New</a>
             </p>
         }
-
+@*
         @foreach(string category in Model.Categories)
         {
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="@category" name="categoryCheckbox" value="@category">
                 <label class="form-check-label" for="@category">@category</label>
             </div>
-        }
+        }*@
     </div>
     <div class="col-md-6 justify-content-end" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
         <form method="get" asp-controller="Furniture" asp-action="All" class="mt-5">
@@ -46,75 +46,51 @@
 </div>
 
 
-<table class="table table-sm table-striped mt-5">
-    <thead>
-        <tr class="table-info" style="font-size: 20px">
-            <th>
-                Name
-            </th>     
-            <th>
-                Price
-            </th>
-            <th>
-                Category
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.AllFurniture)
-        {
-            <tr name="trData" class="table-info" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
-                <td> 
+<div class="row mt-4 justify-content-center">
+    @foreach (var item in Model.AllFurniture)
+    {
+        <div class="card m-2" style="width: 20rem;">
+            <img class="card-img-top" src="@item.ImageURL" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Name: @item.Name</h5>
+                @if (User.Identity.IsAuthenticated)
+                {
                     <strong>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </strong>           
-                </td>
-                <td>
-                    @if (User.Identity.IsAuthenticated)
-                    {
                         <s>
                             @Html.DisplayFor(modelItem => item.Price)$
                         </s>
                         <p style="color: red">
                             @Html.DisplayFor(modelItem => item.PriceWithDiscount)$
                         </p>
-                    }
-                    else
-                    {
+                    </strong>             
+                }
+                else
+                {
+                    <strong>
                         <p>
                             @Html.DisplayFor(modelItem => item.Price)$
                         </p>
-                    }
-                </td>
-                <td>
-                    <strong>
-                        @Html.DisplayFor(modelItem => item.CategoryName)
-                    </strong>              
-                </td>
-                <td>
-                    <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    @if ((User.Identity.IsAuthenticated && !User.IsInRole(GlobalConstants.AdministratorRoleName)))
-                    {
-                        <a class="btn btn-dark" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
-                    }
-                    @if(User.IsInRole(GlobalConstants.AdministratorRoleName))
-                    {
-                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    }
-                </td>
-                <td hidden>
-                    @item.CategoryName
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    </strong>                
+                }
+                <h5 class="card-title" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Category: @item.CategoryName</h5>
+                <h5 class="card-title" hidden>@item.CategoryName</h5>
+                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                @if (User.Identity.IsAuthenticated && !User.IsInRole(GlobalConstants.AdministratorRoleName))
+                {
+                    <a class="btn btn-dark" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
+                }
+                @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+                {
+                    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
+            </div>
+        </div>
+    }
+</div>
 
-<script>
+
+@*<script>
     (function() {
         let checkBoxes = document.getElementsByName("categoryCheckbox");
         for (let box of checkBoxes) {
@@ -138,4 +114,4 @@
             }); 
         }
     })();
-</script>
+</script>*@
