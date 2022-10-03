@@ -4,12 +4,12 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit Accessory</h1>
+<h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Edit Accessory</h1>
 
-<h4>Accessory</h4>
+<h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Accessory</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group"> 
@@ -38,8 +38,8 @@
                 <span asp-validation-for="StockQuantity" class="text-danger"></span>
             </div>
             <div class="form-group mt-3">
-                <input type="submit" value="Save" class="btn btn-primary" />
-                <a class="btn btn-primary" asp-action="All">Back</a>
+                <input type="submit" value="Save" class="btn btn-dark" />
+                <a class="btn btn-dark" asp-action="All">Back</a>
             </div>
         </form>
     </div>

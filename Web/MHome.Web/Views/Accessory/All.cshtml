@@ -37,59 +37,43 @@
     </div>
 </div>
 
-<table class="table table-sm table-striped mt-5">
-    <thead>
-        <tr class="table-info" style="font-size: 20px">
-            <th>
-                Name
-            </th>
-            <th>
-                Price
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.AllAccessories)
-        {
-            <tr name="trData" class="table-info" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
-                <td>
+<div style="display: inline-flex">
+    @foreach (var item in Model.AllAccessories)
+    {
+        <div class="card m-3" style="width: 20rem;">
+            <img class="card-img-top" src="@item.ImageURL" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Name: @item.Name</h5>
+                @if (User.Identity.IsAuthenticated)
+                {
                     <strong>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </strong>
-                </td>
-                <td>
-                    @if (User.Identity.IsAuthenticated)
-                    {
                         <s>
                             @Html.DisplayFor(modelItem => item.Price)$
                         </s>
                         <p style="color: red">
                             @Html.DisplayFor(modelItem => item.PriceWithDiscount)$
                         </p>
-                    }
-                    else
-                    {
+                    </strong>             
+                }
+                else
+                {
+                    <strong>
                         <p>
                             @Html.DisplayFor(modelItem => item.Price)$
                         </p>
-                    }
-                </td>
-                <td>
-                    <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    @if (User.Identity.IsAuthenticated && !User.IsInRole(GlobalConstants.AdministratorRoleName))
-                    {
-                        <a class="btn btn-dark" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
-                    }
-                    @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
-                    {
-                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    </strong>                
+                }
+                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                @if (User.Identity.IsAuthenticated && !User.IsInRole(GlobalConstants.AdministratorRoleName))
+                {
+                    <a class="btn btn-dark" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
+                }
+                @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+                {
+                    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
+            </div>
+        </div>
+    }
+</div>
