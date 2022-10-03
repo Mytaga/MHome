@@ -4,9 +4,9 @@
     ViewData["Title"] = "All";
 }
 
-<h1>All Orders</h1>
-
-<div class="row">
+<h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">All Orders</h1>
+ 
+<div class="row" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
     <div class="col-md-6 justify-content-end">
         <form method="get" asp-controller="Order" asp-action="All" class="mt-5">
             <div class="input-group">
@@ -19,7 +19,7 @@
                     <input type="text" name="search" class="form-control" value="@Model.SearchQuery">
                 }
                 <div class="input-group-btn">
-                    <button class="btn btn-info" type="submit">
+                    <button class="btn btn-dark" type="submit">
                         Search
                     </button>
                 </div>
@@ -29,7 +29,7 @@
 </div>
 
 
-<table class="table mt-4">
+<table class="table mt-4" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
     <thead>
         <tr>
             <th>
@@ -52,7 +52,7 @@
                     @Html.DisplayFor(modelItem => item.TotalPrice)$
                 </td>
                 <td>
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
