@@ -5,12 +5,12 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Make Order</h1>
+<h1 style ="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Make Order</h1>
 
-<h4>Order</h4>
+<h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Order</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -23,8 +23,8 @@
                 <span asp-validation-for="DeliveryType" class="text-danger"></span>
             </div>
             <div class="form-group mt-3">
-                <input type="submit" value="Make Order" class="btn btn-primary" />
-                <a class="btn btn-primary" asp-controller="Furniture" asp-action="All">Back</a>
+                <input class="btn btn-dark" type="submit" value="Make Order" />
+                <a class="btn btn-dark" asp-controller="Furniture" asp-action="All">Back</a>
             </div>
         </form>
     </div>
