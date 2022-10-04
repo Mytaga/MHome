@@ -21,7 +21,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
             @foreach (var item in Model.BoughtFurniture.OrderByDescending(bf => bf.Price))
             {
                 <tr name="trData">
@@ -44,5 +44,5 @@
 </p>
 
 <div class="mt-4 mb-4 justify-content-md-center">
-    <a class="btn btn-info" asp-action="Main">Back</a>
+    <a class="btn btn-dark" asp-action="Main">Back</a>
 </div>
