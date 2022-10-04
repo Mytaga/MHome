@@ -154,6 +154,7 @@ namespace MHome.Web.Controllers
             Category category = this.categoryService.GetById(model.CategoryId);
 
             furniture.Name = model.Name;
+            furniture.ImageURL = model.ImageURL;
             furniture.Description = model.Description;
             furniture.Price = model.Price;
             furniture.Dimensions = model.Dimensions;
