@@ -5,7 +5,7 @@
     ViewData["Title"] = "Accessories Catalogue";
 }
 
-<div class="row">
+<div class="row" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
     <div class="col-md-4">
         <h1 style ="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Catalogue</h1>
 
@@ -63,15 +63,15 @@
                         </p>
                     </strong>                
                 }
-                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-dark" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"  asp-action="Details" asp-route-id="@item.Id">Details</a>
                 @if (User.Identity.IsAuthenticated && !User.IsInRole(GlobalConstants.AdministratorRoleName))
                 {
-                    <a class="btn btn-dark" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
+                    <a class="btn btn-dark" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" asp-controller="Order" asp-action="Create" asp-route-id="@item.Id">Order</a>
                 }
                 @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
                 {
-                    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="btn btn-dark" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-danger" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 }
             </div>
         </div>
