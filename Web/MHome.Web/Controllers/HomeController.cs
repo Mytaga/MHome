@@ -1,23 +1,27 @@
-﻿namespace MHome.Web.Controllers
+﻿namespace PizzaOrderingSystem.Web.Controllers
 {
     using System.Diagnostics;
 
-    using MHome.Web.ViewModels;
+    using PizzaOrderingSystem.Web.ViewModels;
 
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
 
     public class HomeController : BaseController
     {
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return this.View();
         }
 
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return this.View();
         }
 
+        [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
