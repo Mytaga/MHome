@@ -1,9 +1,7 @@
-﻿namespace PizzaOrderingSystem.Web.Controllers
+﻿namespace MHome.Web.Controllers
 {
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    [Authorize]
     public class BaseController : Controller
     {
     }
