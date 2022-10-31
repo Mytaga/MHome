@@ -1,6 +1,6 @@
 ﻿#nullable disable
 
-namespace MHome.Data.Migrations
+namespace PizzaOrderingSystem.Data.Migrations
 {
     using System;
 
